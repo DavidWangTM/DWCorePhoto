@@ -11,9 +11,11 @@
 #import "PCHeader.h"
 #import "ShowImageController.h"
 
-@interface TableViewController (){
+@interface TableViewController ()<TableCellDelegate>{
     NSArray *data;
     NSInteger index;
+    UIImageView *imageview;
+    CGRect frame_first;
 }
 
 @end
@@ -39,12 +41,6 @@
 
 #pragma mark - Table view data source
 
-//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-//
-//    // Return the number of sections.
-//    return 0;
-//}
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
     // Return the number of rows in the section.
@@ -56,52 +52,28 @@
     static NSString *identifier = @"TableCell";
     TableCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     NSString *url = data[indexPath.row];
+    cell.delegate = self;
+    cell.indexPath = indexPath;
     [cell.showImage sd_setImageWithURL:[NSURL URLWithString:url]];
     return cell;
 }
 
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+-(void)backindexPath:(NSIndexPath *)indexPath{
+    index = [indexPath row];
+     TableCell *cell = (TableCell *)[self.tableView cellForRowAtIndexPath:indexPath];
+    imageview = cell.showImage;
+    
+    frame_first = CGRectMake(cell.frame.origin.x+imageview.frame.origin.x, cell.frame.origin.y+imageview.frame.origin.y-self.tableView.contentOffset.y, imageview.frame.size.width, imageview.frame.size.height);
+    
+    [self performSegueWithIdentifier:@"showimage" sender:nil];
 }
-*/
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-
-// Override to support rearranging the table view.
-//- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-//    
-//}
-
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
 
 
 #pragma mark - Table view delegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    index = [indexPath row];
-    [self performSegueWithIdentifier:@"showimage" sender:nil];
 }
 
 #pragma mark - Navigation
@@ -114,6 +86,7 @@
         ShowImageController *img = (ShowImageController*)segue.destinationViewController;
         img.data = data;
         img.index = index;
+        [img showImageView:frame_first image:imageview.image];
     }
 }
 

@@ -16,6 +16,7 @@
     CGSize bigSize;
     CGSize smallSize;
     UIImageView *imageview;
+    CGRect zframe;
 }
 
 @end
@@ -44,6 +45,7 @@
 
 -(void)showImageView:(CGRect) initframe image:(UIImage *) image{
     CGRect frame = [UIScreen mainScreen].bounds;
+    zframe = initframe;
     imageview = [[UIImageView alloc] initWithFrame:initframe];
     imageview.image = image;
     imageview.clipsToBounds = YES;
@@ -79,13 +81,14 @@
     if (smallSize.width > smallSize.height) {
         d = smallSize.width / bigSize.width;
     }
-    img.layer.transform = CATransform3DMakeScale(d, d, 1);
+    img.layer.transform = CATransform3DMakeScale(0.5, 0.5, 1);
     [UIView animateWithDuration:0.8 delay:0 usingSpringWithDamping:0.5 initialSpringVelocity:0.5 options:UIViewAnimationOptionCurveEaseInOut animations:^{
         img.layer.transform = CATransform3DIdentity;
     } completion:^(BOOL finished) {
         [_scrollView setContentOffset:CGPointMake(_scrollView.frame.size.width*_index, 0)];
         [_scrollView setHidden:NO];
-        [img removeFromSuperview];
+        [img setHidden:YES];
+//        [img removeFromSuperview];
     }];
 }
 
@@ -106,7 +109,30 @@
 }
 
 -(void)BackOnclick{
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self didbig];
+}
+
+-(void)didbig{
+    [imageview setHidden:NO];
+    [_scrollView setHidden:YES];
+    CGFloat d = smallSize.height / bigSize.height;
+    if (smallSize.width > smallSize.height) {
+        d = smallSize.width / bigSize.width;
+    }
+    [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        imageview.layer.transform = CATransform3DMakeScale(0.5,0.5,1.0);
+        imageview.clipsToBounds = YES;
+    } completion:^(BOOL finished) {
+        [self goSmall];
+    }];
+}
+
+-(void)goSmall{
+    [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        imageview.frame = zframe;
+    } completion:^(BOOL finished) {
+        [self dismissViewControllerAnimated:NO completion:nil];
+    }];
 }
 
 /*

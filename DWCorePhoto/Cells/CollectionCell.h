@@ -8,7 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol CollectionCellDelegate <NSObject>
+
+-(void)backindexPath:(NSIndexPath *)indexPath;
+
+@end
+
 @interface CollectionCell : UICollectionViewCell
 
 @property (weak, nonatomic) IBOutlet UIImageView *showImage;
+@property (weak, nonatomic) NSIndexPath *indexPath;
+@property (weak, nonatomic) id<CollectionCellDelegate> delegate;
+
 @end

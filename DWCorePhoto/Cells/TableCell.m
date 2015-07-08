@@ -19,7 +19,7 @@
 }
 
 -(void)onclick:(UITapGestureRecognizer *)tap{
-    
+    [_delegate backindexPath:_indexPath];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

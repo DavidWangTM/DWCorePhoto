@@ -8,7 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol TableCellDelegate <NSObject>
+
+-(void)backindexPath:(NSIndexPath *)indexPath;
+
+@end
+
 @interface TableCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UIImageView *showImage;
+@property (weak, nonatomic) id<TableCellDelegate> delegate;
+@property (weak, nonatomic) NSIndexPath *indexPath;
+
 @end

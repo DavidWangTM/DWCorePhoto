@@ -11,9 +11,11 @@
 #import "PCHeader.h"
 #import "ShowImageController.h"
 
-@interface CollectionViewController (){
+@interface CollectionViewController ()<CollectionCellDelegate>{
     NSArray *data;
     NSInteger index;
+    UIImageView *imageview;
+    CGRect frame_first;
 }
 
 @end
@@ -49,17 +51,12 @@ static NSString * const reuseIdentifier = @"Cell";
         ShowImageController *img = (ShowImageController*)segue.destinationViewController;
         img.data = data;
         img.index = index;
+        [img showImageView:frame_first image:imageview.image];
     }
 }
 
 
 #pragma mark <UICollectionViewDataSource>
-
-//- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-//#warning Incomplete method implementation -- Return the number of sections
-//    return 0;
-//}
-
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return [data count];
@@ -73,46 +70,28 @@ static NSString * const reuseIdentifier = @"Cell";
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     CollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"CollectionCell" forIndexPath:indexPath];
     NSString *url = data[indexPath.row];
+    cell.indexPath = indexPath;
+    cell.delegate = self;
     [cell.showImage sd_setImageWithURL:[NSURL URLWithString:url]];
     
     return cell;
+}
+
+-(void)backindexPath:(NSIndexPath *)indexPath{
+    index = [indexPath row];
+    CollectionCell *cell = (CollectionCell *)[self.collectionView cellForItemAtIndexPath:indexPath];
+    imageview = cell.showImage;
+    
+    frame_first = CGRectMake(cell.frame.origin.x+imageview.frame.origin.x, cell.frame.origin.y+imageview.frame.origin.y-self.collectionView.contentOffset.y, imageview.frame.size.width, imageview.frame.size.height);
+    [self performSegueWithIdentifier:@"showimage" sender:nil];
 }
 
 
 #pragma mark <UICollectionViewDelegate>
 // 选中某个cell
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    index = [indexPath row];
-    [self performSegueWithIdentifier:@"showimage" sender:nil];
+    
 }
 
-/*
-// Uncomment this method to specify if the specified item should be highlighted during tracking
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
-	return YES;
-}
-*/
-
-/*
-// Uncomment this method to specify if the specified item should be selected
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    return YES;
-}
-*/
-
-/*
-// Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldShowMenuForItemAtIndexPath:(NSIndexPath *)indexPath {
-	return NO;
-}
-
-- (BOOL)collectionView:(UICollectionView *)collectionView canPerformAction:(SEL)action forItemAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender {
-	return NO;
-}
-
-- (void)collectionView:(UICollectionView *)collectionView performAction:(SEL)action forItemAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender {
-	
-}
-*/
 
 @end
