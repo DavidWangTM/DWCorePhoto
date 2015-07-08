@@ -116,7 +116,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="spr-bq-70L">
-                                <rect key="frame" x="110" y="234" width="100" height="100"/>
+                                <rect key="frame" x="110" y="72" width="100" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </imageView>
@@ -126,7 +126,7 @@
                     <navigationItem key="navigationItem" title="单张图片点击" id="4In-q8-PcU"/>
                     <connections>
                         <outlet property="showImage" destination="spr-bq-70L" id="QJP-xN-Is1"/>
-                        <segue destination="qz5-Pe-eAX" kind="modal" identifier="showimage" modalTransitionStyle="crossDissolve" id="rDp-HM-sdJ"/>
+                        <segue destination="qz5-Pe-eAX" kind="modal" identifier="showimage" modalTransitionStyle="crossDissolve" animates="NO" id="rDp-HM-sdJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bfT-8f-7Va" userLabel="First Responder" sceneMemberID="firstResponder"/>

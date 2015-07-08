@@ -51,6 +51,7 @@
     if ([segue.identifier compare:@"showimage"] == NSOrderedSame ) {
         ShowImageController *img = (ShowImageController*)segue.destinationViewController;
         img.data = data;
+        [img showImageView:_showImage.frame image:_showImage.image];
     }
 }
 

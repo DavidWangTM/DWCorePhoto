@@ -44,9 +44,6 @@
     [tapImgView requireGestureRecognizerToFail:tapImgViewTwice];
 }
 
--(void)setSZoomcale{
-    
-}
 
 - (void)scrollViewDidEndZooming:(UIScrollView *)scrollView withView:(UIView *)view atScale:(CGFloat)scale{
     currentScale = scale;

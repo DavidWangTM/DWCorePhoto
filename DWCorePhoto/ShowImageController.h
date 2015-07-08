@@ -13,5 +13,6 @@
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) NSArray *data;
 @property NSInteger index;
+-(void)showImageView:(CGRect) frame image:(UIImage *) image;
 
 @end
