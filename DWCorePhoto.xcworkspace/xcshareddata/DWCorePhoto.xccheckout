@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>4FE68DEE-FE46-487C-AA62-52F55E5B6EF7</string>
+	<key>IDESourceControlProjectName</key>
+	<string>DWCorePhoto</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>8AFF1CA7B4E3DCE8CF4F66378A8422004347969C</key>
+		<string>https://github.com/DavidWangTM/DWCorePhoto.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>DWCorePhoto.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>8AFF1CA7B4E3DCE8CF4F66378A8422004347969C</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/DavidWangTM/DWCorePhoto.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>8AFF1CA7B4E3DCE8CF4F66378A8422004347969C</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>8AFF1CA7B4E3DCE8CF4F66378A8422004347969C</string>
+			<key>IDESourceControlWCCName</key>
+			<string>DWCorePhoto</string>
+		</dict>
+	</array>
+</dict>
+</plist>

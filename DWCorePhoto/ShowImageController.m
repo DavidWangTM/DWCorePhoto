@@ -27,11 +27,14 @@
 }
 
 -(void)initData{
+    
+    NSLog(@"%f",_scrollView.frame.size.width);
     for (int i = 0 ; i < [_data count]; i++) {
         showimage = [[[NSBundle mainBundle] loadNibNamed:@"ShowImageView" owner:self options:nil] firstObject];
-        showimage.frame = CGRectMake(showimage.frame.size.width*i,showimage.frame.origin.y, showimage.frame.size.width,showimage.frame.size.height);
+        showimage.frame = CGRectMake(_scrollView.frame.size.width*i ,_scrollView.frame.origin.y, _scrollView.frame.size.width - 20,_scrollView.frame.size.height);
         showimage.url = [_data objectAtIndex:i];
         showimage.delegate = self;
+        [showimage setSZoomcale];
         [_scrollView addSubview:showimage];
     }
     [_scrollView setContentSize:CGSizeMake(_scrollView.frame.size.width* [_data count],_scrollView.frame.size.height)];

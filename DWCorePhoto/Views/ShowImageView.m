@@ -26,11 +26,11 @@
         [imageView setFrame:rect];
         
     }];
-    
     [_scrollview setContentSize:[imageView frame].size];
     [_scrollview setMinimumZoomScale:[_scrollview frame].size.width / [imageView frame].size.width];
     [_scrollview setZoomScale:[_scrollview minimumZoomScale]];
     [_scrollview addSubview:imageView];
+    
     
     UITapGestureRecognizer *tapImgView = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapImgViewHandle)];
     tapImgView.numberOfTapsRequired = 1;
@@ -44,6 +44,10 @@
     [tapImgView requireGestureRecognizerToFail:tapImgViewTwice];
 }
 
+-(void)setSZoomcale{
+    
+}
+
 - (void)scrollViewDidEndZooming:(UIScrollView *)scrollView withView:(UIView *)view atScale:(CGFloat)scale{
     currentScale = scale;
     NSLog(@"回调-%f",currentScale);
@@ -55,9 +59,7 @@
 
 #pragma mark - tap
 -(void)tapImgViewHandle{
-    
-    
-    if (currentScale > 0.25) {
+    if (currentScale > 0.4) {
         currentScale = 0.0;
         [self.scrollview setZoomScale:0.0 animated:YES];
     }else{
@@ -69,7 +71,7 @@
     
     CGPoint touchPoint = [sender locationInView:self.scrollview];
     NSLog(@"%f",touchPoint.x);
-    if(currentScale > 0.25){
+    if(currentScale > 0.4){
         currentScale = 0.0;
         [self.scrollview setZoomScale:0.0 animated:YES];
     }else{

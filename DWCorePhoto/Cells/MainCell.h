@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PCHeader.h"
 
 @interface MainCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *showLab;

@@ -17,6 +17,8 @@
 
 @interface ShowImageView : UIView<UIScrollViewDelegate>
 
+-(void)setSZoomcale;
+
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollview;
 @property (weak, nonatomic) NSString *url;
 
