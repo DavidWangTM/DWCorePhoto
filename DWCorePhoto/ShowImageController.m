@@ -17,6 +17,7 @@
     CGSize smallSize;
     UIImageView *imageview;
     CGRect zframe;
+    CGRect wyrame;
 }
 
 @end
@@ -26,7 +27,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
     [self initData];
 }
 
@@ -40,7 +40,6 @@
     }
     [_scrollView setContentSize:CGSizeMake(_scrollView.frame.size.width* [_data count],_scrollView.frame.size.height)];
     [_scrollView setHidden:YES];
-    
 }
 
 -(void)showImageView:(CGRect) initframe image:(UIImage *) image{
@@ -129,10 +128,52 @@
 
 -(void)goSmall{
     [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-        imageview.frame = zframe;
+        if (wyrame.size.width != 0) {
+            imageview.frame = wyrame;
+        }else{
+            imageview.frame = zframe;
+        }
     } completion:^(BOOL finished) {
         [self dismissViewControllerAnimated:NO completion:nil];
     }];
+}
+
+/*
+ *  scrollView代理方法区
+ */
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView{
+
+    //    NSUInteger page = [self pageCalWithScrollView:scrollView];
+}
+
+
+//10为图片的间距
+-(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
+    
+    NSUInteger page = [self pageCalWithScrollView:scrollView];
+    [imageview sd_setImageWithURL:[NSURL URLWithString:[_data objectAtIndex:page]]];
+    if (_type == 1) {
+        NSInteger cha = page - _index;
+        CGFloat y = zframe.origin.y + (cha * (zframe.size.height + 10));
+        wyrame = CGRectMake(zframe.origin.x, y, zframe.size.width, zframe.size.height);
+    }else if(_type == 2){
+        NSInteger a1 = _index % 3;
+        NSInteger a = page % 3;
+        NSInteger chax = a - a1;
+        NSInteger b1 = _index /3;
+        NSInteger b = page / 3;
+        NSInteger chay = b - b1;
+        CGFloat x = zframe.origin.x + (chax * (zframe.size.width + 10));
+        CGFloat y = zframe.origin.y + (chay * (zframe.size.height + 10));
+        wyrame = CGRectMake(x, y, zframe.size.width, zframe.size.height);
+    }
+}
+
+-(NSUInteger)pageCalWithScrollView:(UIScrollView *)scrollView{
+    
+    NSUInteger page = scrollView.contentOffset.x / scrollView.bounds.size.width + .5f;
+    
+    return page;
 }
 
 /*

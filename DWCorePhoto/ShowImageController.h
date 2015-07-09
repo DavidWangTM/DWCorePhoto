@@ -8,11 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+//type ,0为单张，1为列表，2为网格。
+
 @interface ShowImageController : UIViewController
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) NSArray *data;
 @property NSInteger index;
+@property NSInteger type;
 -(void)showImageView:(CGRect) frame image:(UIImage *) image;
 
 @end
