@@ -17,7 +17,7 @@
 @interface CollectionCell : UICollectionViewCell
 
 @property (weak, nonatomic) IBOutlet UIImageView *showImage;
-@property (weak, nonatomic) NSIndexPath *indexPath;
+@property (strong, nonatomic) NSIndexPath *indexPath;
 @property (weak, nonatomic) id<CollectionCellDelegate> delegate;
 
 @end

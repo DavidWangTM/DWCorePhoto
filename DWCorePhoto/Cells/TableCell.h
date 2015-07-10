@@ -18,6 +18,6 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *showImage;
 @property (weak, nonatomic) id<TableCellDelegate> delegate;
-@property (weak, nonatomic) NSIndexPath *indexPath;
+@property (strong, nonatomic) NSIndexPath *indexPath;
 
 @end
