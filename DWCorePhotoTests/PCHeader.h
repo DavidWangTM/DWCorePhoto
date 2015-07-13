@@ -9,6 +9,8 @@
 #import <pop/POP.h>
 #import "UIImageView+WebCache.h"
 
+#define BOUNDS [[UIScreen mainScreen] bounds].size
+
 
 #define ISIOS7LATER [[[UIDevice currentDevice] systemVersion] floatValue]>=7
 #define ISIOS8LATER [[[UIDevice currentDevice] systemVersion] floatValue]>=8
@@ -17,6 +19,8 @@
 #define IS_PHONE4   (([[UIScreen mainScreen] bounds].size.height-480)?NO:YES)
 #define IS_PHONE6   (([[UIScreen mainScreen] bounds].size.height-1334)?NO:YES)
 #define IS_PHONE6PIS (([[UIScreen mainScreen] bounds].size.height-2208)?NO:YES)
+
+
 
 #if TARGET_IPHONE_SIMULATOR
 #define SIMULATOR 1

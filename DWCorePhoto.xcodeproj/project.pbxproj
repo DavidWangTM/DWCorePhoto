@@ -23,6 +23,13 @@
 		04968AD91B4CD1EE0005C3B0 /* ShowImageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04968AD81B4CD1EE0005C3B0 /* ShowImageController.m */; };
 		04968ADC1B4CD2410005C3B0 /* ShowImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04968ADB1B4CD2410005C3B0 /* ShowImageView.m */; };
 		04968ADE1B4CD24E0005C3B0 /* ShowImageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04968ADD1B4CD24E0005C3B0 /* ShowImageView.xib */; };
+		04DD728B1B5348B80092342C /* MixViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DD728A1B5348B80092342C /* MixViewController.m */; };
+		04DD72911B534AD60092342C /* MixCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DD72901B534AD60092342C /* MixCell.m */; };
+		04DD72941B534BC50092342C /* MixView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DD72931B534BC50092342C /* MixView.m */; };
+		04DD72961B534BD30092342C /* MixView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04DD72951B534BD30092342C /* MixView.xib */; };
+		04DD72991B534C5C0092342C /* MixModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DD72981B534C5C0092342C /* MixModel.m */; };
+		04DD729C1B539D530092342C /* MixGirdView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DD729B1B539D530092342C /* MixGirdView.m */; };
+		04DD729E1B539D5F0092342C /* MixGridView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04DD729D1B539D5F0092342C /* MixGridView.xib */; };
 		1B77E3CC85BAA7DECC1F6F8F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F1D02AB73D02A2E7C6F99AE /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -68,6 +75,18 @@
 		04968ADA1B4CD2410005C3B0 /* ShowImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowImageView.h; sourceTree = "<group>"; };
 		04968ADB1B4CD2410005C3B0 /* ShowImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowImageView.m; sourceTree = "<group>"; };
 		04968ADD1B4CD24E0005C3B0 /* ShowImageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShowImageView.xib; sourceTree = "<group>"; };
+		04DD72891B5348B80092342C /* MixViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MixViewController.h; sourceTree = "<group>"; };
+		04DD728A1B5348B80092342C /* MixViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MixViewController.m; sourceTree = "<group>"; };
+		04DD728F1B534AD60092342C /* MixCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MixCell.h; sourceTree = "<group>"; };
+		04DD72901B534AD60092342C /* MixCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MixCell.m; sourceTree = "<group>"; };
+		04DD72921B534BC50092342C /* MixView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MixView.h; sourceTree = "<group>"; };
+		04DD72931B534BC50092342C /* MixView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MixView.m; sourceTree = "<group>"; };
+		04DD72951B534BD30092342C /* MixView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MixView.xib; sourceTree = "<group>"; };
+		04DD72971B534C5C0092342C /* MixModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MixModel.h; sourceTree = "<group>"; };
+		04DD72981B534C5C0092342C /* MixModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MixModel.m; sourceTree = "<group>"; };
+		04DD729A1B539D530092342C /* MixGirdView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MixGirdView.h; sourceTree = "<group>"; };
+		04DD729B1B539D530092342C /* MixGirdView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MixGirdView.m; sourceTree = "<group>"; };
+		04DD729D1B539D5F0092342C /* MixGridView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MixGridView.xib; sourceTree = "<group>"; };
 		274317D20E73FADCD10E2ECB /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		6F1D02AB73D02A2E7C6F99AE /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFDA3BE281BCADD2B314A260 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -130,6 +149,8 @@
 				04968ACF1B4CC7CB0005C3B0 /* CollectionViewController.m */,
 				04968AD71B4CD1EE0005C3B0 /* ShowImageController.h */,
 				04968AD81B4CD1EE0005C3B0 /* ShowImageController.m */,
+				04DD72891B5348B80092342C /* MixViewController.h */,
+				04DD728A1B5348B80092342C /* MixViewController.m */,
 				04968AA51B4CBA4B0005C3B0 /* Main.storyboard */,
 				04968AA81B4CBA4B0005C3B0 /* Images.xcassets */,
 				04968AAA1B4CBA4B0005C3B0 /* LaunchScreen.xib */,
@@ -174,6 +195,8 @@
 				04968AD21B4CC8230005C3B0 /* TableCell.m */,
 				04968AD41B4CC8300005C3B0 /* CollectionCell.h */,
 				04968AD51B4CC8300005C3B0 /* CollectionCell.m */,
+				04DD728F1B534AD60092342C /* MixCell.h */,
+				04DD72901B534AD60092342C /* MixCell.m */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -181,6 +204,8 @@
 		04968AC61B4CBDC40005C3B0 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				04DD72971B534C5C0092342C /* MixModel.h */,
+				04DD72981B534C5C0092342C /* MixModel.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -191,6 +216,12 @@
 				04968ADA1B4CD2410005C3B0 /* ShowImageView.h */,
 				04968ADB1B4CD2410005C3B0 /* ShowImageView.m */,
 				04968ADD1B4CD24E0005C3B0 /* ShowImageView.xib */,
+				04DD72921B534BC50092342C /* MixView.h */,
+				04DD72931B534BC50092342C /* MixView.m */,
+				04DD72951B534BD30092342C /* MixView.xib */,
+				04DD729A1B539D530092342C /* MixGirdView.h */,
+				04DD729B1B539D530092342C /* MixGirdView.m */,
+				04DD729D1B539D5F0092342C /* MixGridView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -295,7 +326,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				04968AA71B4CBA4B0005C3B0 /* Main.storyboard in Resources */,
+				04DD72961B534BD30092342C /* MixView.xib in Resources */,
 				04968ADE1B4CD24E0005C3B0 /* ShowImageView.xib in Resources */,
+				04DD729E1B539D5F0092342C /* MixGridView.xib in Resources */,
 				04968AAC1B4CBA4B0005C3B0 /* LaunchScreen.xib in Resources */,
 				04968AA91B4CBA4B0005C3B0 /* Images.xcassets in Resources */,
 			);
@@ -355,10 +388,15 @@
 				04968AD61B4CC8300005C3B0 /* CollectionCell.m in Sources */,
 				04968AC91B4CBDF20005C3B0 /* SingleShowImage.m in Sources */,
 				04968AA11B4CBA4B0005C3B0 /* AppDelegate.m in Sources */,
+				04DD729C1B539D530092342C /* MixGirdView.m in Sources */,
 				04968ADC1B4CD2410005C3B0 /* ShowImageView.m in Sources */,
+				04DD72911B534AD60092342C /* MixCell.m in Sources */,
 				04968AC51B4CBD3B0005C3B0 /* MainCell.m in Sources */,
 				04968AD31B4CC8230005C3B0 /* TableCell.m in Sources */,
+				04DD72941B534BC50092342C /* MixView.m in Sources */,
 				04968A9E1B4CBA4B0005C3B0 /* main.m in Sources */,
+				04DD72991B534C5C0092342C /* MixModel.m in Sources */,
+				04DD728B1B5348B80092342C /* MixViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

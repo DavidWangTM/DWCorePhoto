@@ -53,6 +53,7 @@
                         <segue destination="Fvz-ed-yDV" kind="push" identifier="single" id="C7W-yF-uFr"/>
                         <segue destination="thH-cq-8P8" kind="push" identifier="list" id="HBy-FM-Z9w"/>
                         <segue destination="giO-lY-AXq" kind="push" identifier="grid" id="LXk-hR-HOD"/>
+                        <segue destination="c54-Ok-TXe" kind="push" identifier="mix" id="DqM-NN-RkI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
@@ -174,7 +175,77 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l4m-No-16p" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="550.39999999999998" y="912.5866666666667"/>
+            <point key="canvasLocation" x="550" y="912"/>
+        </scene>
+        <!--混合排版-->
+        <scene sceneID="PjU-4O-wjL">
+            <objects>
+                <viewController id="c54-Ok-TXe" customClass="MixViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ct9-Du-mpF">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="66" sectionHeaderHeight="22" sectionFooterHeight="22" id="Ce0-ng-yTI">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MixCell" rowHeight="66" id="n3Y-OC-ZPr" customClass="MixCell">
+                                        <rect key="frame" x="0.0" y="86" width="320" height="66"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="n3Y-OC-ZPr" id="NZ0-pa-DeR">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="66"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="BD0-8f-uxC">
+                                                    <rect key="frame" x="8" y="8" width="50" height="50"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="库拉玛塔塔" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="vDm-5h-2TO">
+                                                    <rect key="frame" x="66" y="8" width="246" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="这里是内容形式的拉。" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fJX-Fn-qNf">
+                                                    <rect key="frame" x="66" y="33" width="246" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <view contentMode="scaleToFill" id="Jtb-76-XkW">
+                                                    <rect key="frame" x="66" y="66" width="188" height="0.0"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                </view>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="addView" destination="Jtb-76-XkW" id="QlK-8d-RTG"/>
+                                            <outlet property="contentLab" destination="fJX-Fn-qNf" id="Ke7-de-9kT"/>
+                                            <outlet property="nameLab" destination="vDm-5h-2TO" id="WhG-c5-SCs"/>
+                                            <outlet property="showImg" destination="BD0-8f-uxC" id="KJO-7d-bDp"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="c54-Ok-TXe" id="uKN-7L-l0A"/>
+                                    <outlet property="delegate" destination="c54-Ok-TXe" id="B9m-t5-jsb"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="混合排版" id="AeF-cI-ogp"/>
+                    <connections>
+                        <outlet property="tableView" destination="Ce0-ng-yTI" id="TMu-1L-A57"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BlP-Gv-L8c" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="550" y="1540"/>
         </scene>
         <!--Show Image Controller-->
         <scene sceneID="GDV-uY-pUW">
