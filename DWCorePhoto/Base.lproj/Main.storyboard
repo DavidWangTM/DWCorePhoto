@@ -47,9 +47,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="DWCorePhoto" id="OI0-MM-F2T">
-                        <barButtonItem key="rightBarButtonItem" systemItem="bookmarks" id="rHd-2a-OSI"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="DWCorePhoto" id="OI0-MM-F2T"/>
                     <connections>
                         <outlet property="tableView" destination="45H-a1-6bZ" id="f0Y-Pn-GVT"/>
                         <segue destination="Fvz-ed-yDV" kind="push" identifier="single" id="C7W-yF-uFr"/>
@@ -193,7 +191,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="MixCell" rowHeight="304" id="n3Y-OC-ZPr" customClass="MixCell">
-                                        <rect key="frame" x="0.0" y="86" width="320" height="304"/>
+                                        <rect key="frame" x="0.0" y="22" width="320" height="304"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="n3Y-OC-ZPr" id="NZ0-pa-DeR">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="304"/>
