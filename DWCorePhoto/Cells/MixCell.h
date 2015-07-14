@@ -12,7 +12,7 @@
 
 @protocol MixCellDelegate <NSObject>
 
--(void)singleImgOnclick:(NSIndexPath *)indexPath;
+-(void)singleImgOnclick:(NSIndexPath *)indexPath row:(NSInteger) row imgview:(UIImageView *)imgview;
 
 @end
 
@@ -23,7 +23,7 @@
 @property (weak, nonatomic) IBOutlet UIView *addView;
 @property (strong, nonatomic) MixModel *info;
 @property (strong, nonatomic) NSArray *imgdata;
-@property (weak, nonatomic) NSIndexPath *indexPath;
+@property (strong, nonatomic) NSIndexPath *indexPath;
 @property (weak, nonatomic) id<MixCellDelegate> delegate;
 
 -(CGFloat)GetHight;

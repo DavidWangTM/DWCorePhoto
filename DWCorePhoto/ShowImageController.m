@@ -12,6 +12,8 @@
 #import "PCHeader.h"
 
 #define SCROLLMAR 20
+#define TABLEVIEWMAR 10
+#define COLLECT
 
 @interface ShowImageController ()<ShowImageDelegate>{
     ShowImageView *showimage;
@@ -166,6 +168,26 @@
         NSInteger chay = b - b1;
         CGFloat x = zframe.origin.x + (chax * (zframe.size.width + 10));
         CGFloat y = zframe.origin.y + (chay * (zframe.size.height + 10));
+        wyrame = CGRectMake(x, y, zframe.size.width, zframe.size.height);
+    }else if (_type == 3){
+        NSInteger a1 = _index % 3;
+        NSInteger a = page % 3;
+        NSInteger chax = a - a1;
+        NSInteger b1 = _index /3;
+        NSInteger b = page / 3;
+        NSInteger chay = b - b1;
+        CGFloat x = zframe.origin.x + (chax * (zframe.size.width + 4));
+        CGFloat y = zframe.origin.y + (chay * (zframe.size.height + 4));
+        wyrame = CGRectMake(x, y, zframe.size.width, zframe.size.height);
+    }else if (_type == 4){
+        NSInteger a1 = _index % 2;
+        NSInteger a = page % 2;
+        NSInteger chax = a - a1;
+        NSInteger b1 = _index /2;
+        NSInteger b = page / 2;
+        NSInteger chay = b - b1;
+        CGFloat x = zframe.origin.x + (chax * (zframe.size.width + 4));
+        CGFloat y = zframe.origin.y + (chay * (zframe.size.height + 4));
         wyrame = CGRectMake(x, y, zframe.size.width, zframe.size.height);
     }
 }

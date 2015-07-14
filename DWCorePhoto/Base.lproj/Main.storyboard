@@ -26,9 +26,9 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="单张图片点击" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="r1A-SS-S0K">
-                                                    <rect key="frame" x="8" y="11" width="102" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <rect key="frame" x="8" y="11" width="279" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="20"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -58,9 +58,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="185.59999999999999" y="284.94666666666666"/>
+            <point key="canvasLocation" x="185" y="284"/>
         </scene>
-        <!--网格图片-->
+        <!--CollectionShow-->
         <scene sceneID="QF7-Ja-NbU">
             <objects>
                 <collectionViewController id="giO-lY-AXq" customClass="CollectionViewController" sceneMemberID="viewController">
@@ -100,7 +100,7 @@
                             <outlet property="delegate" destination="giO-lY-AXq" id="AaT-91-PUK"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" title="网格图片" id="gvp-Vs-vMq"/>
+                    <navigationItem key="navigationItem" title="CollectionShow" id="gvp-Vs-vMq"/>
                     <connections>
                         <segue destination="qz5-Pe-eAX" kind="modal" identifier="showimage" modalTransitionStyle="crossDissolve" animates="NO" id="qsX-yZ-3pD"/>
                     </connections>
@@ -109,7 +109,7 @@
             </objects>
             <point key="canvasLocation" x="572" y="-360"/>
         </scene>
-        <!--单张图片点击-->
+        <!--SingleShow-->
         <scene sceneID="BxE-GJ-tyz">
             <objects>
                 <viewController id="Fvz-ed-yDV" customClass="SingleShowImage" sceneMemberID="viewController">
@@ -125,7 +125,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="单张图片点击" id="4In-q8-PcU"/>
+                    <navigationItem key="navigationItem" title="SingleShow" id="4In-q8-PcU"/>
                     <connections>
                         <outlet property="showImage" destination="spr-bq-70L" id="QJP-xN-Is1"/>
                         <segue destination="qz5-Pe-eAX" kind="modal" identifier="showimage" modalTransitionStyle="crossDissolve" animates="NO" id="rDp-HM-sdJ"/>
@@ -135,7 +135,7 @@
             </objects>
             <point key="canvasLocation" x="550.39999999999998" y="284.94666666666666"/>
         </scene>
-        <!--列表图片-->
+        <!--TableViewShow-->
         <scene sceneID="Ff4-tk-UcS">
             <objects>
                 <tableViewController id="thH-cq-8P8" customClass="TableViewController" sceneMemberID="viewController">
@@ -168,7 +168,7 @@
                             <outlet property="delegate" destination="thH-cq-8P8" id="hH9-9v-XDy"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="列表图片" id="bkU-DI-UKn"/>
+                    <navigationItem key="navigationItem" title="TableViewShow" id="bkU-DI-UKn"/>
                     <connections>
                         <segue destination="qz5-Pe-eAX" kind="modal" identifier="showimage" modalTransitionStyle="crossDissolve" animates="NO" id="PF7-7K-6Ar"/>
                     </connections>
@@ -177,7 +177,7 @@
             </objects>
             <point key="canvasLocation" x="550" y="912"/>
         </scene>
-        <!--混合排版-->
+        <!--MixShow-->
         <scene sceneID="PjU-4O-wjL">
             <objects>
                 <viewController id="c54-Ok-TXe" customClass="MixViewController" sceneMemberID="viewController">
@@ -299,7 +299,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="混合排版" id="AeF-cI-ogp"/>
+                    <navigationItem key="navigationItem" title="MixShow" id="AeF-cI-ogp"/>
                     <connections>
                         <outlet property="tableView" destination="Ce0-ng-yTI" id="TMu-1L-A57"/>
                         <segue destination="qz5-Pe-eAX" kind="modal" identifier="showimage" animates="NO" id="xmD-U3-jd8"/>

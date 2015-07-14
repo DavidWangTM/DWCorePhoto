@@ -99,27 +99,34 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     MixModel *info = [data objectAtIndex:[indexPath row]];
-    MixCell *cell = [tableView dequeueReusableCellWithIdentifier:identifiercell];
+    MixCell *cell = (MixCell *)[tableView cellForRowAtIndexPath:indexPath];
+    if (cell == nil) {
+        cell = [tableView dequeueReusableCellWithIdentifier:identifiercell];
+    }
     cell.info = info;
     cell.indexPath = indexPath;
     cell.delegate = self;
     [cell setContent];
     return cell;
 }
-
+ 
 #pragma mark - Table view delegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
 }
 
--(void)singleImgOnclick:(NSIndexPath *)indexPath{
-    index = [indexPath row];
-    MixModel *info = [data objectAtIndex:index];
-    MixCell *cell = (MixCell *)[self.tableView cellForRowAtIndexPath:indexPath];
-    imageview = cell.singleImg;
-    NSString *url =[[info.data objectAtIndex:0] objectAtIndex:0];
-    dataimg = @[url];
+-(void)singleImgOnclick:(NSIndexPath *)indexPath row:(NSInteger)row imgview:(UIImageView *)imgview{
+    index = row;
+    MixModel *info = [data objectAtIndex:[indexPath row]];
+    NSArray *data_i = info.data;
+    MixCell *cell = (MixCell *)[_tableView cellForRowAtIndexPath:indexPath];
+    imageview = imgview;
+    NSMutableArray *addimg = [NSMutableArray new];
+    for (int i = 0; i < [data_i count]; i++) {
+        [addimg addObject:[[data_i objectAtIndex:i] objectAtIndex:0]];
+    }
+    dataimg = (NSArray *)addimg;
     frame_first = CGRectMake(cell.frame.origin.x+ cell.addView.frame.origin.x+imageview.frame.origin.x, cell.frame.origin.y+cell.addView.frame.origin.y+imageview.frame.origin.y-self.tableView.contentOffset.y, imageview.frame.size.width, imageview.frame.size.height);
     [self performSegueWithIdentifier:@"showimage" sender:nil];
 }
@@ -135,7 +142,15 @@
     if ([segue.identifier compare:@"showimage"] == NSOrderedSame ) {
         ShowImageController *img = (ShowImageController*)segue.destinationViewController;
         img.data = dataimg;
-        img.type = 0;
+        if ([dataimg count] > 1) {
+            img.type = 3;
+            if ([dataimg count] == 4) {
+                img.type = 4;
+            }
+        }else{
+            img.type = 0;
+        }
+        img.index = index;
         [img showImageView:frame_first image:imageview.image];
     }
 }

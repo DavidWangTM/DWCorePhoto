@@ -24,13 +24,35 @@
         UIImageView *imageview = [_imgdata objectAtIndex:i];
         imageview.contentMode = UIViewContentModeScaleAspectFill;
         imageview.clipsToBounds = YES;
+        UITapGestureRecognizer *sigtap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(gridImgOnclick:)];
+        [imageview addGestureRecognizer:sigtap];
+        
     }
     UITapGestureRecognizer *sigtap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleImgOnclick)];
     [_singleImg addGestureRecognizer:sigtap];
 }
 
+-(void)gridImgOnclick:(UITapGestureRecognizer*)recognizer{
+    UIImageView *imageview = (UIImageView *)recognizer.view;
+    NSArray *data = _info.data;
+    for (int i = 0;i < [_imgdata count];i++) {
+        UIImageView *img = [_imgdata objectAtIndex:i];
+        if (img == imageview) {
+            int num = i;
+            if ([data count] == 4) {
+                if (i > 2) {
+                    num --;
+                }
+            }
+            [_delegate singleImgOnclick:_indexPath row:num imgview:img];
+            return;
+        }
+    }
+    
+}
+
 -(void)singleImgOnclick{
-    [_delegate singleImgOnclick:_indexPath];
+    [_delegate singleImgOnclick:_indexPath row:0 imgview:_singleImg];
 }
 
 -(void)setContent{
@@ -201,5 +223,10 @@
 
     // Configure the view for the selected state
 }
+
+
+
+
+
 
 @end

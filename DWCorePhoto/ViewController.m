@@ -22,10 +22,10 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    arr = @[@[@"单张图片", @"single"],
-            @[@"列表图片", @"list"],
-              @[@"网格图片", @"grid"],
-            @[@"混合布局图片", @"mix"]];
+    arr = @[@[@"SingleShow", @"single"],
+            @[@"TableViewShow", @"list"],
+              @[@"CollectionShow", @"grid"],
+            @[@"MixShow", @"mix"]];
 }
 
 - (void)didReceiveMemoryWarning {
