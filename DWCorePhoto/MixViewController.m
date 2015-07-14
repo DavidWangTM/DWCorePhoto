@@ -44,7 +44,7 @@
     MixModel *info0 = [[MixModel alloc] initWithData:@"DavidWang" content:@"这是一个单张的演示" showimgurl:@"http://imgsrc.baidu.com/forum/pic/item/8b82b9014a90f603fa18d50f3912b31bb151edca.jpg" data:imgdata0];
     [data addObject:info0];
 
-    NSArray *imgdata2 = @[@[@"http://h.hiphotos.baidu.com/album/scrop%3D236%3Bq%3D90/sign=2fab0be130adcbef056a3959dc921cee/4b90f603738da977c61bb40eb151f8198618e3db.jpg",@"236",@"236"],@[@"http://h.hiphotos.baidu.com/album/scrop%3D236%3Bq%3D90/sign=2fab0be130adcbef056a3959dc921cee/4b90f603738da977c61bb40eb151f8198618e3db.jpg",@"236",@"236"]];
+    NSArray *imgdata2 = @[@[@"http://article.joyme.com/article/uploads/allimg/140812/101I01291-10.jpg",@"640",@"960"],@[@"http://h.hiphotos.baidu.com/album/scrop%3D236%3Bq%3D90/sign=2fab0be130adcbef056a3959dc921cee/4b90f603738da977c61bb40eb151f8198618e3db.jpg",@"236",@"236"]];
     MixModel *info2 = [[MixModel alloc] initWithData:@"DavidWang" content:@"这是二张的演示" showimgurl:@"http://imgsrc.baidu.com/forum/pic/item/8b82b9014a90f603fa18d50f3912b31bb151edca.jpg" data:imgdata2];
     [data addObject:info2];
     
@@ -151,6 +151,8 @@
             img.type = 0;
         }
         img.index = index;
+        //动画类型，目前只有2种.0和1
+        img.pop_type = 0;
         [img showImageView:frame_first image:imageview.image];
     }
 }

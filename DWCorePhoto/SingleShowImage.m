@@ -51,6 +51,8 @@
     if ([segue.identifier compare:@"showimage"] == NSOrderedSame ) {
         ShowImageController *img = (ShowImageController*)segue.destinationViewController;
         img.data = data;
+        //动画类型，目前只有2种.0和1
+        img.pop_type = 0;
         [img showImageView:_showImage.frame image:_showImage.image];
     }
 }

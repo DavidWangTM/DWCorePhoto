@@ -47,7 +47,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="DWCorePhoto" id="OI0-MM-F2T"/>
+                    <navigationItem key="navigationItem" title="DWCorePhoto" id="OI0-MM-F2T">
+                        <barButtonItem key="rightBarButtonItem" systemItem="bookmarks" id="rHd-2a-OSI"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="45H-a1-6bZ" id="f0Y-Pn-GVT"/>
                         <segue destination="Fvz-ed-yDV" kind="push" identifier="single" id="C7W-yF-uFr"/>
@@ -360,6 +362,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="xmD-U3-jd8"/>
+        <segue reference="rDp-HM-sdJ"/>
     </inferredMetricsTieBreakers>
 </document>

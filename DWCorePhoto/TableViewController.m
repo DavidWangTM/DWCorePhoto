@@ -93,6 +93,8 @@
         img.data = data;
         img.index = index;
         img.type = 1;
+        //动画类型，目前只有2种.0和1
+        img.pop_type = 0;
         [img showImageView:frame_first image:imageview.image];
     }
 }
