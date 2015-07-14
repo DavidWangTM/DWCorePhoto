@@ -7,8 +7,9 @@
 //
 
 #import "MixCell.h"
-#import "MixView.h"
 
+#define GRIDMAR 90
+#define GRIDSPA 8
 
 @implementation MixCell
 
@@ -17,10 +18,10 @@
     _showImg.layer.cornerRadius = 25;
     _showImg.contentMode = UIViewContentModeScaleAspectFill;
     _showImg.clipsToBounds = YES;
+    _imgdata = @[_imgone,_imgtwo,_imgthree,_imgfour,_imgfive,_imgsix,_imgseven,_imgeight,_imgnine];
 }
 
--(void)drawRect:(CGRect)rect{
-    [super drawRect:rect];
+-(void)setContent{
     [_showImg sd_setImageWithURL:[NSURL URLWithString:_info.showimgurl]];
     _nameLab.text = _info.name;
     _contentLab.text = _info.content;
@@ -29,14 +30,15 @@
 
 -(void)setAddViewImage{
     NSArray *data = _info.data;
+     [self setGridImgHide];
     if ([data count] == 1) {
-        MixView *mixview = [[[NSBundle mainBundle] loadNibNamed:@"MixView" owner:self options:nil] firstObject];
-        mixview.frame = CGRectMake(0, 0, [self GetWight], [self ImageOne]);
+        [_singleImg setHidden:NO];
+        _singleImg.frame = CGRectMake(0, 0, [self GetWight], [self ImageOne]);
         NSString *url = [[data objectAtIndex:0] objectAtIndex:0];
-        mixview.showimg.contentMode = UIViewContentModeScaleAspectFill;
-        mixview.showimg.clipsToBounds = YES;
-        [mixview.showimg sd_setImageWithURL:[NSURL URLWithString:url]];
-        [_addView addSubview:mixview];
+        [_singleImg sd_setImageWithURL:[NSURL URLWithString:url]];
+    }else {
+        [_singleImg setHidden:YES];
+        [self SelectGridNum];
     }
 }
 
@@ -49,10 +51,35 @@
             hight = 66;
             break;
         case 1:
-            hight = 66 + [self ImageOne] + 8;
+            hight = 66 + [self ImageOne] + GRIDSPA + GRIDSPA/2;
+            break;
+        case 2:
+            hight = 66 + (BOUNDS.width - GRIDMAR + GRIDSPA)/3 + GRIDSPA/2;
+            break;
+        case 3:
+            hight = 66 + (BOUNDS.width - GRIDMAR + GRIDSPA)/3 + GRIDSPA/2;
+            break;
+        case 4:
+            hight = 66 + (BOUNDS.width - GRIDMAR + GRIDSPA)/3 * 2 + GRIDSPA/2;
+            break;
+        case 5:
+            hight = 66 + (BOUNDS.width - GRIDMAR + GRIDSPA)/3 * 2 + GRIDSPA/2;
+            break;
+        case 6:
+            hight = 66 + (BOUNDS.width - GRIDMAR + GRIDSPA)/3 * 2 + GRIDSPA/2;
+            break;
+        case 7:
+            hight = 66 + (BOUNDS.width - GRIDMAR + GRIDSPA)/3 * 3 + GRIDSPA;
+            break;
+        case 8:
+            hight = 66 + (BOUNDS.width - GRIDMAR + GRIDSPA)/3 * 3 + GRIDSPA;
+            break;
+        case 9:
+            hight = 66 + (BOUNDS.width - GRIDMAR + GRIDSPA)/3 * 3 + GRIDSPA;
             break;
        
         default:
+            
             break;
     }
     
@@ -90,6 +117,64 @@
     }else{
         return width*h/w;
     }
+}
+
+-(void)SelectGridNum{
+    NSArray *data = _info.data;
+        switch ([data count]) {
+            case 2:
+                [self setShowImgContent:2 data:data];
+                break;
+            case 3:
+                [self setShowImgContent:3 data:data];
+                break;
+            case 4:
+                for (int i = 0 ; i < 4; i++) {
+                    int num = i;
+                    if (i == 2 || i == 3){num++;}
+                    UIImageView *img = [_imgdata objectAtIndex:num];
+                    [img setHidden:NO];
+                    [img sd_setImageWithURL:[NSURL URLWithString:[[data objectAtIndex:i] objectAtIndex:0]]];
+                }
+                break;
+            case 5:
+                [self setShowImgContent:5 data:data];
+                break;
+            case 6:
+                [self setShowImgContent:6 data:data];
+                break;
+            case 7:
+                [self setShowImgContent:7 data:data];
+                break;
+            case 8:
+                [self setShowImgContent:8 data:data];
+                break;
+            case 9:
+                [self setShowImgContent:9 data:data];
+                break;
+            default:
+                break;
+        }
+}
+
+-(void)setShowImgContent:(int) num data:(NSArray *)data{
+    for (int i = 0 ; i < num; i++) {
+        UIImageView *img = [_imgdata objectAtIndex:i];
+        [img setHidden:NO];
+        [img sd_setImageWithURL:[NSURL URLWithString:[[data objectAtIndex:i] objectAtIndex:0]]];
+    }
+}
+
+-(void)setGridImgHide{
+    [_imgone setHidden:YES];
+    [_imgtwo setHidden:YES];
+    [_imgthree setHidden:YES];
+    [_imgfour setHidden:YES];
+    [_imgfive setHidden:YES];
+    [_imgsix setHidden:YES];
+    [_imgseven setHidden:YES];
+    [_imgeight setHidden:YES];
+    [_imgnine setHidden:YES];
 }
 
 

@@ -16,8 +16,24 @@
 @property (weak, nonatomic) IBOutlet UILabel *contentLab;
 @property (weak, nonatomic) IBOutlet UIView *addView;
 @property (strong, nonatomic) MixModel *info;
-
+@property NSInteger index;
+@property (strong, nonatomic) NSArray *imgdata;
 
 -(CGFloat)GetHight;
+-(void)setContent;
+
+@property (weak, nonatomic) IBOutlet UIImageView *singleImg;
+
+@property (weak, nonatomic) IBOutlet UIImageView *imgone;
+@property (weak, nonatomic) IBOutlet UIImageView *imgtwo;
+@property (weak, nonatomic) IBOutlet UIImageView *imgthree;
+@property (weak, nonatomic) IBOutlet UIImageView *imgfour;
+@property (weak, nonatomic) IBOutlet UIImageView *imgfive;
+@property (weak, nonatomic) IBOutlet UIImageView *imgsix;
+@property (weak, nonatomic) IBOutlet UIImageView *imgseven;
+@property (weak, nonatomic) IBOutlet UIImageView *imgeight;
+@property (weak, nonatomic) IBOutlet UIImageView *imgnine;
+
+
 
 @end
