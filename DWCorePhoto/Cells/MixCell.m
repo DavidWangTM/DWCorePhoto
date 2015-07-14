@@ -19,6 +19,18 @@
     _showImg.contentMode = UIViewContentModeScaleAspectFill;
     _showImg.clipsToBounds = YES;
     _imgdata = @[_imgone,_imgtwo,_imgthree,_imgfour,_imgfive,_imgsix,_imgseven,_imgeight,_imgnine];
+    
+    for (int i = 0 ; i < [_imgdata count]; i++) {
+        UIImageView *imageview = [_imgdata objectAtIndex:i];
+        imageview.contentMode = UIViewContentModeScaleAspectFill;
+        imageview.clipsToBounds = YES;
+    }
+    UITapGestureRecognizer *sigtap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleImgOnclick)];
+    [_singleImg addGestureRecognizer:sigtap];
+}
+
+-(void)singleImgOnclick{
+    [_delegate singleImgOnclick:_indexPath];
 }
 
 -(void)setContent{
@@ -26,6 +38,10 @@
     _nameLab.text = _info.name;
     _contentLab.text = _info.content;
     [self setAddViewImage];
+}
+
+-(void)drawRect:(CGRect)rect{
+    _addView.frame = CGRectMake(_addView.frame.origin.x, _addView.frame.origin.y, _addView.frame.size.width, _addView.frame.size.width);
 }
 
 -(void)setAddViewImage{
@@ -38,6 +54,7 @@
         [_singleImg sd_setImageWithURL:[NSURL URLWithString:url]];
     }else {
         [_singleImg setHidden:YES];
+        
         [self SelectGridNum];
     }
 }
@@ -121,6 +138,7 @@
 
 -(void)SelectGridNum{
     NSArray *data = _info.data;
+
         switch ([data count]) {
             case 2:
                 [self setShowImgContent:2 data:data];

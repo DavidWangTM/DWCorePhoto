@@ -8,11 +8,16 @@
 
 #import "MixViewController.h"
 #import "MixCell.h"
+#import "ShowImageController.h"
 
-#define identifier @"MixCell"
+#define identifiercell @"MixCell"
 
-@interface MixViewController (){
+@interface MixViewController ()<MixCellDelegate>{
     NSMutableArray *data;
+    NSInteger index;
+    UIImageView *imageview;
+    CGRect frame_first;
+    NSArray *dataimg;
 }
 
 @end
@@ -27,7 +32,6 @@
 }
 
 -(void)inData{
-    for (int  i = 0; i< 2; i++) {
     NSArray *imgdata = @[@[@"http://img4q.duitang.com/uploads/item/201408/11/20140811141753_iNtAF.jpeg",@"1280",@"720"]];
     MixModel *info = [[MixModel alloc] initWithData:@"DavidWang" content:@"这是一个单张的演示" showimgurl:@"http://imgsrc.baidu.com/forum/pic/item/8b82b9014a90f603fa18d50f3912b31bb151edca.jpg" data:imgdata];
     [data addObject:info];
@@ -36,10 +40,9 @@
     MixModel *info1 = [[MixModel alloc] initWithData:@"DavidWang" content:@"这是一个单张的演示" showimgurl:@"http://imgsrc.baidu.com/forum/pic/item/8b82b9014a90f603fa18d50f3912b31bb151edca.jpg" data:imgdata1];
     [data addObject:info1];
     
-    NSArray *imgdata2 = @[@[@"http://h.hiphotos.baidu.com/album/scrop%3D236%3Bq%3D90/sign=2fab0be130adcbef056a3959dc921cee/4b90f603738da977c61bb40eb151f8198618e3db.jpg",@"236",@"236"]];
-    MixModel *info2 = [[MixModel alloc] initWithData:@"DavidWang" content:@"这是一个单张的演示" showimgurl:@"http://imgsrc.baidu.com/forum/pic/item/8b82b9014a90f603fa18d50f3912b31bb151edca.jpg" data:imgdata2];
-    [data addObject:info2];
-    }
+    NSArray *imgdata0 = @[@[@"http://pic2.52pk.com/files/150402/1283568_110713_1_lit.jpg",@"271",@"400"]];
+    MixModel *info0 = [[MixModel alloc] initWithData:@"DavidWang" content:@"这是一个单张的演示" showimgurl:@"http://imgsrc.baidu.com/forum/pic/item/8b82b9014a90f603fa18d50f3912b31bb151edca.jpg" data:imgdata0];
+    [data addObject:info0];
 
     NSArray *imgdata2 = @[@[@"http://h.hiphotos.baidu.com/album/scrop%3D236%3Bq%3D90/sign=2fab0be130adcbef056a3959dc921cee/4b90f603738da977c61bb40eb151f8198618e3db.jpg",@"236",@"236"],@[@"http://h.hiphotos.baidu.com/album/scrop%3D236%3Bq%3D90/sign=2fab0be130adcbef056a3959dc921cee/4b90f603738da977c61bb40eb151f8198618e3db.jpg",@"236",@"236"]];
     MixModel *info2 = [[MixModel alloc] initWithData:@"DavidWang" content:@"这是二张的演示" showimgurl:@"http://imgsrc.baidu.com/forum/pic/item/8b82b9014a90f603fa18d50f3912b31bb151edca.jpg" data:imgdata2];
@@ -96,9 +99,10 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     MixModel *info = [data objectAtIndex:[indexPath row]];
-    MixCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+    MixCell *cell = [tableView dequeueReusableCellWithIdentifier:identifiercell];
     cell.info = info;
-    cell.index = [indexPath row];
+    cell.indexPath = indexPath;
+    cell.delegate = self;
     [cell setContent];
     return cell;
 }
@@ -109,15 +113,32 @@
     
 }
 
+-(void)singleImgOnclick:(NSIndexPath *)indexPath{
+    index = [indexPath row];
+    MixModel *info = [data objectAtIndex:index];
+    MixCell *cell = (MixCell *)[self.tableView cellForRowAtIndexPath:indexPath];
+    imageview = cell.singleImg;
+    NSString *url =[[info.data objectAtIndex:0] objectAtIndex:0];
+    dataimg = @[url];
+    frame_first = CGRectMake(cell.frame.origin.x+ cell.addView.frame.origin.x+imageview.frame.origin.x, cell.frame.origin.y+cell.addView.frame.origin.y+imageview.frame.origin.y-self.tableView.contentOffset.y, imageview.frame.size.width, imageview.frame.size.height);
+    [self performSegueWithIdentifier:@"showimage" sender:nil];
+}
 
-/*
+
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    if ([segue.identifier compare:@"showimage"] == NSOrderedSame ) {
+        ShowImageController *img = (ShowImageController*)segue.destinationViewController;
+        img.data = dataimg;
+        img.type = 0;
+        [img showImageView:frame_first image:imageview.image];
+    }
 }
-*/
+
 
 @end

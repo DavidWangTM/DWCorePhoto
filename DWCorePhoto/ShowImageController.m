@@ -11,6 +11,8 @@
 #import "ShowImageView.h"
 #import "PCHeader.h"
 
+#define SCROLLMAR 20
+
 @interface ShowImageController ()<ShowImageDelegate>{
     ShowImageView *showimage;
     CGSize bigSize;
@@ -33,7 +35,7 @@
 -(void)initData{
     for (int i = 0 ; i < [_data count]; i++) {
         showimage = [[[NSBundle mainBundle] loadNibNamed:@"ShowImageView" owner:self options:nil] firstObject];
-        showimage.frame = CGRectMake(_scrollView.frame.size.width*i ,_scrollView.frame.origin.y, _scrollView.frame.size.width - 20,_scrollView.frame.size.height);
+        showimage.frame = CGRectMake(_scrollView.frame.size.width*i ,_scrollView.frame.origin.y, _scrollView.frame.size.width - SCROLLMAR,_scrollView.frame.size.height);
         showimage.url = [_data objectAtIndex:i];
         showimage.delegate = self;
         [_scrollView addSubview:showimage];
@@ -80,14 +82,13 @@
     if (smallSize.width > smallSize.height) {
         d = smallSize.width / bigSize.width;
     }
-    img.layer.transform = CATransform3DMakeScale(0.5, 0.5, 1);
-    [UIView animateWithDuration:0.8 delay:0 usingSpringWithDamping:0.5 initialSpringVelocity:0.5 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+    img.layer.transform = CATransform3DMakeScale(d, d, 1);
+    [UIView animateWithDuration:0.8 delay:0 usingSpringWithDamping:d initialSpringVelocity:d options:UIViewAnimationOptionCurveEaseInOut animations:^{
         img.layer.transform = CATransform3DIdentity;
     } completion:^(BOOL finished) {
         [_scrollView setContentOffset:CGPointMake(_scrollView.frame.size.width*_index, 0)];
         [_scrollView setHidden:NO];
         [img setHidden:YES];
-//        [img removeFromSuperview];
     }];
 }
 
@@ -119,7 +120,7 @@
         d = smallSize.width / bigSize.width;
     }
     [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-        imageview.layer.transform = CATransform3DMakeScale(0.5,0.5,1.0);
+        imageview.layer.transform = CATransform3DMakeScale(d,d,1.0);
         imageview.clipsToBounds = YES;
     } completion:^(BOOL finished) {
         [self goSmall];

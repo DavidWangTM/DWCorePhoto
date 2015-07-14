@@ -13,35 +13,41 @@
     UIImageView *imageView;
 }
 
-
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect {
     // Drawing code
-    imageView = [UIImageView new];
+    imageView = [[UIImageView alloc] init];
     [imageView sd_setImageWithURL:[NSURL URLWithString:_url] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
         CGRect rect;
         rect.size.width = image.size.width;
         rect.size.height = image.size.height;
+        if (image.size.width < BOUNDS.width) {
+            rect.size.width = BOUNDS.width * 2;
+            CGFloat p = image.size.width/image.size.height;
+            rect.size.height = (BOUNDS.width/p)*2;
+        }
         [imageView setFrame:rect];
+        [_scrollview setContentSize:[imageView frame].size];
+        [_scrollview setMinimumZoomScale:[_scrollview frame].size.width / [imageView frame].size.width];
+        [_scrollview setZoomScale:0.0];
+        
+        [_scrollview addSubview:imageView];
+        
+        [imageView setBackgroundColor:[UIColor redColor]];
+        
+        UITapGestureRecognizer *tapImgView = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapImgViewHandle)];
+        tapImgView.numberOfTapsRequired = 1;
+        tapImgView.numberOfTouchesRequired = 1;
+        [self addGestureRecognizer:tapImgView];
+        
+        UITapGestureRecognizer *tapImgViewTwice = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapImgViewHandleTwice:)];
+        tapImgViewTwice.numberOfTapsRequired = 2;
+        tapImgViewTwice.numberOfTouchesRequired = 1;
+        [self addGestureRecognizer:tapImgViewTwice];
+        [tapImgView requireGestureRecognizerToFail:tapImgViewTwice];
         
     }];
-    [_scrollview setContentSize:[imageView frame].size];
-    [_scrollview setMinimumZoomScale:[_scrollview frame].size.width / [imageView frame].size.width];
-    [_scrollview setZoomScale:[_scrollview minimumZoomScale]];
-    [_scrollview addSubview:imageView];
-    
-    
-    UITapGestureRecognizer *tapImgView = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapImgViewHandle)];
-    tapImgView.numberOfTapsRequired = 1;
-    tapImgView.numberOfTouchesRequired = 1;
-    [self addGestureRecognizer:tapImgView];
-    
-    UITapGestureRecognizer *tapImgViewTwice = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapImgViewHandleTwice:)];
-    tapImgViewTwice.numberOfTapsRequired = 2;
-    tapImgViewTwice.numberOfTouchesRequired = 1;
-    [self addGestureRecognizer:tapImgViewTwice];
-    [tapImgView requireGestureRecognizerToFail:tapImgViewTwice];
 }
 
 
@@ -56,7 +62,7 @@
 
 #pragma mark - tap
 -(void)tapImgViewHandle{
-    if (currentScale > 0.4) {
+    if (currentScale > 0.6) {
         currentScale = 0.0;
         [self.scrollview setZoomScale:0.0 animated:YES];
     }else{
@@ -68,7 +74,7 @@
     
     CGPoint touchPoint = [sender locationInView:self.scrollview];
     NSLog(@"%f",touchPoint.x);
-    if(currentScale > 0.4){
+    if(currentScale > 0.6){
         currentScale = 0.0;
         [self.scrollview setZoomScale:0.0 animated:YES];
     }else{

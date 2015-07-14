@@ -64,7 +64,7 @@ static NSString * const reuseIdentifier = @"Cell";
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
-    CGFloat width = (self.view.frame.size.width - 10*4)/3;
+    CGFloat width = (BOUNDS.width - 10*4)/3;
     return CGSizeMake(width, width);
 }
 

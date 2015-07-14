@@ -10,14 +10,21 @@
 #import "PCHeader.h"
 #import "MixModel.h"
 
+@protocol MixCellDelegate <NSObject>
+
+-(void)singleImgOnclick:(NSIndexPath *)indexPath;
+
+@end
+
 @interface MixCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *showImg;
 @property (weak, nonatomic) IBOutlet UILabel *nameLab;
 @property (weak, nonatomic) IBOutlet UILabel *contentLab;
 @property (weak, nonatomic) IBOutlet UIView *addView;
 @property (strong, nonatomic) MixModel *info;
-@property NSInteger index;
 @property (strong, nonatomic) NSArray *imgdata;
+@property (weak, nonatomic) NSIndexPath *indexPath;
+@property (weak, nonatomic) id<MixCellDelegate> delegate;
 
 -(CGFloat)GetHight;
 -(void)setContent;
