@@ -185,13 +185,55 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="296" sectionHeaderHeight="22" sectionFooterHeight="22" id="Ce0-ng-yTI">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="296" sectionHeaderHeight="22" sectionFooterHeight="22" id="Ce0-ng-yTI">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <view key="tableHeaderView" contentMode="scaleToFill" id="FVo-Ka-Ke8">
+                                    <rect key="frame" x="0.0" y="64" width="320" height="280"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" id="Q2K-of-mm0">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="230"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                            <subviews>
+                                                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="e0l-hx-uhC">
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="230"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                    <subviews>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="4Pk-DJ-mNR">
+                                                            <rect key="frame" x="0.0" y="0.0" width="320" height="230"/>
+                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                        </imageView>
+                                                    </subviews>
+                                                </scrollView>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <view contentMode="scaleToFill" id="tyD-Qa-t0Z">
+                                            <rect key="frame" x="252" y="197" width="62" height="62"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="caS-wH-PXX">
+                                                    <rect key="frame" x="1" y="1" width="60" height="60"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                </imageView>
+                                            </subviews>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DavidWang" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="AHt-Yc-hGk">
+                                            <rect key="frame" x="8" y="209" width="236" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="14"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </view>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="MixCell" rowHeight="304" id="n3Y-OC-ZPr" customClass="MixCell">
-                                        <rect key="frame" x="0.0" y="22" width="320" height="304"/>
+                                        <rect key="frame" x="0.0" y="366" width="320" height="304"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="n3Y-OC-ZPr" id="NZ0-pa-DeR">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="304"/>
@@ -271,8 +313,15 @@
                                                     </subviews>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 </view>
+                                                <view contentMode="scaleToFill" id="Bju-QA-duI">
+                                                    <rect key="frame" x="0.0" y="304" width="320" height="1"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                                    <color key="backgroundColor" white="0.66666666666666663" alpha="0.5" colorSpace="calibratedWhite"/>
+                                                </view>
                                             </subviews>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <outlet property="addView" destination="Jtb-76-XkW" id="QlK-8d-RTG"/>
                                             <outlet property="contentLab" destination="fJX-Fn-qNf" id="Ke7-de-9kT"/>
@@ -301,7 +350,12 @@
                     </view>
                     <navigationItem key="navigationItem" title="MixShow" id="AeF-cI-ogp"/>
                     <connections>
+                        <outlet property="bgImageView" destination="4Pk-DJ-mNR" id="CuQ-ZY-h4b"/>
+                        <outlet property="imageScrollView" destination="e0l-hx-uhC" id="95j-3h-Zbc"/>
+                        <outlet property="mainTop" destination="Q2K-of-mm0" id="Vs1-Ek-xt6"/>
                         <outlet property="tableView" destination="Ce0-ng-yTI" id="TMu-1L-A57"/>
+                        <outlet property="userImage" destination="caS-wH-PXX" id="RxQ-q4-jbh"/>
+                        <outlet property="usernameLab" destination="AHt-Yc-hGk" id="YOH-MC-PCX"/>
                         <segue destination="qz5-Pe-eAX" kind="modal" identifier="showimage" animates="NO" id="xmD-U3-jd8"/>
                     </connections>
                 </viewController>
@@ -360,6 +414,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="rDp-HM-sdJ"/>
+        <segue reference="xmD-U3-jd8"/>
     </inferredMetricsTieBreakers>
 </document>

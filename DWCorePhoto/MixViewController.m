@@ -11,6 +11,7 @@
 #import "ShowImageController.h"
 
 #define identifiercell @"MixCell"
+#define kDefaultHeaderFrame CGRectMake(0, 0, self.mainTop.frame.size.width, self.mainTop.frame.size.height)
 
 @interface MixViewController ()<MixCellDelegate>{
     NSMutableArray *data;
@@ -29,6 +30,17 @@
     // Do any additional setup after loading the view.
     data = [NSMutableArray new];
     [self inData];
+    
+    
+    _bgImageView.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+    _bgImageView.contentMode = UIViewContentModeScaleAspectFill;
+    [_bgImageView sd_setImageWithURL:[NSURL URLWithString:@"http://img2.duitang.com/uploads/item/201208/22/20120822155433_ZLnhS.jpeg"]];
+    _userImage.contentMode = UIViewContentModeScaleAspectFill;
+    _userImage.clipsToBounds = YES;
+    [_userImage sd_setImageWithURL:[NSURL URLWithString:@"http://imgsrc.baidu.com/forum/pic/item/8b82b9014a90f603fa18d50f3912b31bb151edca.jpg"]];
+    
+    
+    
 }
 
 -(void)inData{
@@ -154,6 +166,39 @@
         //动画类型，目前只有2种.0和1
         img.pop_type = 0;
         [img showImageView:frame_first image:imageview.image];
+    }
+}
+
+//top
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    if (scrollView == _tableView)
+    {
+        [self layoutHeaderViewForScrollViewOffset:scrollView.contentOffset];
+        [self.view bringSubviewToFront:_userImage];
+        [self.view bringSubviewToFront:_usernameLab];
+    }
+}
+
+- (void)layoutHeaderViewForScrollViewOffset:(CGPoint)offset
+{
+    CGRect frame = self.imageScrollView.frame;
+    
+    if (offset.y > 0)
+    {
+        self.imageScrollView.frame = frame;
+        self.mainTop.clipsToBounds = YES;
+    }
+    else
+    {
+        CGFloat delta = 0.0f;
+        CGRect rect = kDefaultHeaderFrame;
+        delta = fabs(MIN(0.0f, offset.y));
+        rect.origin.y -= delta;
+        rect.size.height += delta;
+        self.imageScrollView.frame = rect;
+        self.mainTop.clipsToBounds = NO;
     }
 }
 
