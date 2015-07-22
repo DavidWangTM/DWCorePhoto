@@ -26,6 +26,8 @@
             @[@"TableViewShow", @"list"],
               @[@"CollectionShow", @"grid"],
             @[@"MixShow", @"mix"]];
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {

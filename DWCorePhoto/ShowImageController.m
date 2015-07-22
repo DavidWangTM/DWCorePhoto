@@ -55,25 +55,51 @@
     imageview.clipsToBounds = YES;
     imageview.contentMode = UIViewContentModeScaleAspectFill;
     [self.view addSubview:imageview];
-    CGFloat iwidth = image.size.width;
-    CGFloat iheight = image.size.height;
-    if (iwidth > iheight) {
-        CGFloat h = initframe.size.height;
-        CGFloat w = iwidth / iheight * h;
-        smallSize = CGSizeMake(w, h);
+    if (image != nil) {
+        CGFloat iwidth = image.size.width;
+        CGFloat iheight = image.size.height;
+        if (iwidth > iheight) {
+            CGFloat h = initframe.size.height;
+            CGFloat w = iwidth / iheight * h;
+            smallSize = CGSizeMake(w, h);
+        }else{
+            CGFloat w = initframe.size.width;
+            CGFloat h = iheight / iwidth * w;
+            smallSize = CGSizeMake(w, h);
+        }
+        if ((frame.size.height / frame.size.width) < (iheight / iwidth)) {
+            CGFloat h = frame.size.height;
+            CGFloat w = iwidth / iheight * h;
+            bigSize = CGSizeMake(w, h);
+        }else{
+            CGFloat w = frame.size.width;
+            CGFloat h = iheight / iwidth * w;
+            bigSize = CGSizeMake(w, h);
+        }
     }else{
-        CGFloat w = initframe.size.width;
-        CGFloat h = iheight / iwidth * w;
-        smallSize = CGSizeMake(w, h);
-    }
-    if ((frame.size.height / frame.size.width) < (iheight / iwidth)) {
-        CGFloat h = frame.size.height;
-        CGFloat w = iwidth / iheight * h;
-        bigSize = CGSizeMake(w, h);
-    }else{
-        CGFloat w = frame.size.width;
-        CGFloat h = iheight / iwidth * w;
-        bigSize = CGSizeMake(w, h);
+        [imageview sd_setImageWithURL:[NSURL URLWithString:[_data objectAtIndex:_index]] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+            CGFloat iwidth = image.size.width;
+            CGFloat iheight = image.size.height;
+            if (iwidth > iheight) {
+                CGFloat h = initframe.size.height;
+                CGFloat w = iwidth / iheight * h;
+                smallSize = CGSizeMake(w, h);
+            }else{
+                CGFloat w = initframe.size.width;
+                CGFloat h = iheight / iwidth * w;
+                smallSize = CGSizeMake(w, h);
+            }
+            if ((frame.size.height / frame.size.width) < (iheight / iwidth)) {
+                CGFloat h = frame.size.height;
+                CGFloat w = iwidth / iheight * h;
+                bigSize = CGSizeMake(w, h);
+            }else{
+                CGFloat w = frame.size.width;
+                CGFloat h = iheight / iwidth * w;
+                bigSize = CGSizeMake(w, h);
+            }
+
+        }];
     }
 }
 

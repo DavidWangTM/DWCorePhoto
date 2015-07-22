@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "PCHeader.h"
 
 @interface AppDelegate ()
 
@@ -20,6 +21,8 @@
     [[UINavigationBar appearance] setTitleTextAttributes:@{NSFontAttributeName: [UIFont fontWithName:@"Avenir" size:20],
                                                            NSForegroundColorAttributeName: [UIColor blackColor] }];
     [UINavigationBar appearance].tintColor = [UIColor lightGrayColor];
+    [[SDImageCache sharedImageCache] clearDisk];
+  
     return YES;
 }
 
