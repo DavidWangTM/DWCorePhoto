@@ -18,8 +18,8 @@
 @interface ShowImageView : UIView<UIScrollViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollview;
-@property (weak, nonatomic) NSString *url;
-
+@property (strong, nonatomic) ImageModel *model;
+@property (strong ,nonatomic) UIImageView *imageView;
 @property (weak, nonatomic) id<ShowImageDelegate> delegate;
 
 @end

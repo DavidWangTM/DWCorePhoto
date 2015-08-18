@@ -8,6 +8,7 @@
 
 #import <pop/POP.h>
 #import "UIImageView+WebCache.h"
+#import "ImageModel.h"
 
 #define BOUNDS [[UIScreen mainScreen] bounds].size
 

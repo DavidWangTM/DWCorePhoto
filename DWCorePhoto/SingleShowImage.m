@@ -11,7 +11,7 @@
 #import "ShowImageController.h"
 
 @interface SingleShowImage (){
-     NSArray *data;
+     NSMutableArray *data;
 }
 
 @end
@@ -21,14 +21,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-    data = @[@"http://img4q.duitang.com/uploads/item/201408/11/20140811141753_iNtAF.jpeg"];
-    
+    data = [NSMutableArray new];
+    ImageModel *model = [ImageModel new];
+    model.imageurl = @"http://img4q.duitang.com/uploads/item/201408/11/20140811141753_iNtAF.jpeg";
+    model.width = 1280;
+    model.height = 720;
+    [data addObject:model];
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(ImageOnclick:)];
     [_showImage addGestureRecognizer:tap];
     _showImage.contentMode = UIViewContentModeScaleAspectFill;
     _showImage.clipsToBounds = YES;
-    [_showImage sd_setImageWithURL:[NSURL URLWithString:data[0]]];
+    [_showImage sd_setImageWithURL:[NSURL URLWithString:model.imageurl]];
     
 }
 
@@ -53,7 +56,7 @@
         img.data = data;
         //动画类型，目前只有2种.0和1
         img.pop_type = 0;
-        [img showImageView:_showImage.frame image:_showImage.image];
+        [img showImageView:_showImage.frame image:_showImage.image w:1280 h:720];
     }
 }
 

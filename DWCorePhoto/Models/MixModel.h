@@ -15,7 +15,6 @@
 @property (strong ,nonatomic) NSString *showimgurl;
 @property (strong ,nonatomic) NSArray *data;
 
-
 -(MixModel *)initWithData:(NSString *)name content:(NSString *)content showimgurl:(NSString *)showimgurl data:(NSArray *)data;
 
 @end

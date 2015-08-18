@@ -12,7 +12,7 @@
 #import "ShowImageController.h"
 
 @interface CollectionViewController ()<CollectionCellDelegate>{
-    NSArray *data;
+    NSMutableArray *data;
     NSInteger index;
     UIImageView *imageview;
     CGRect frame_first;
@@ -29,10 +29,34 @@ static NSString * const reuseIdentifier = @"Cell";
     
     // Uncomment the following line to preserve selection between presentations
     // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Do any additional setup after loading the view.
-    
-    data = @[@"http://img4q.duitang.com/uploads/item/201408/11/20140811141753_iNtAF.jpeg",@"http://imgsrc.baidu.com/forum/pic/item/8b82b9014a90f603fa18d50f3912b31bb151edca.jpg",@"http://imgsrc.baidu.com/forum/pic/item/8e230cf3d7ca7bcb3acde5a2be096b63f724a8b2.jpg",@"http://att.bbs.duowan.com/forum/201210/20/210446opy9p5pghu015p9u.jpg",@"http://img5.duitang.com/uploads/item/201404/11/20140411214939_XswXa.jpeg",@"http://img4q.duitang.com/uploads/item/201408/11/20140811141753_iNtAF.jpeg",@"http://imgsrc.baidu.com/forum/pic/item/8b82b9014a90f603fa18d50f3912b31bb151edca.jpg",@"http://imgsrc.baidu.com/forum/pic/item/8e230cf3d7ca7bcb3acde5a2be096b63f724a8b2.jpg",@"http://att.bbs.duowan.com/forum/201210/20/210446opy9p5pghu015p9u.jpg",@"http://img5.duitang.com/uploads/item/201404/11/20140411214939_XswXa.jpeg"];
+    data = [NSMutableArray new];
+    for (int i = 0 ; i < 5; i++) {
+        ImageModel *model = [ImageModel new];
+        model.imageurl = @"http://img4q.duitang.com/uploads/item/201408/11/20140811141753_iNtAF.jpeg";
+        model.width = 1280;
+        model.height = 720;
+        [data addObject:model];
+        ImageModel *model1 = [ImageModel new];
+        model1.imageurl = @"http://imgsrc.baidu.com/forum/pic/item/8b82b9014a90f603fa18d50f3912b31bb151edca.jpg";
+        model1.width = 1280;
+        model1.height = 720;
+        [data addObject:model1];
+        ImageModel *model2 = [ImageModel new];
+        model2.imageurl = @"http://imgsrc.baidu.com/forum/pic/item/8e230cf3d7ca7bcb3acde5a2be096b63f724a8b2.jpg";
+        model2.width = 1280;
+        model2.height = 720;
+        [data addObject:model2];
+        ImageModel *model3 = [ImageModel new];
+        model3.imageurl = @"http://att.bbs.duowan.com/forum/201210/20/210446opy9p5pghu015p9u.jpg";
+        model3.width = 1280;
+        model3.height = 720;
+        [data addObject:model3];
+        ImageModel *model4 = [ImageModel new];
+        model4.imageurl = @"http://img5.duitang.com/uploads/item/201404/11/20140411214939_XswXa.jpeg";
+        model4.width = 1280;
+        model4.height = 720;
+        [data addObject:model4];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -54,7 +78,8 @@ static NSString * const reuseIdentifier = @"Cell";
         img.type = 2;
         //动画类型，目前只有2种.0和1
         img.pop_type = 0;
-        [img showImageView:frame_first image:imageview.image];
+        ImageModel *model = [data objectAtIndex:index];
+        [img showImageView:frame_first image:imageview.image w:model.width h:model.height];
     }
 }
 
@@ -66,16 +91,16 @@ static NSString * const reuseIdentifier = @"Cell";
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
-    CGFloat width = (BOUNDS.width - 10*4)/3;
+    CGFloat width = (BOUNDS.width - 10*2)/3;
     return CGSizeMake(width, width);
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     CollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"CollectionCell" forIndexPath:indexPath];
-    NSString *url = data[indexPath.row];
+    ImageModel *model = [data objectAtIndex:indexPath.row];
     cell.indexPath = indexPath;
     cell.delegate = self;
-    [cell.showImage sd_setImageWithURL:[NSURL URLWithString:url]];
+    [cell.showImage sd_setImageWithURL:[NSURL URLWithString:model.imageurl]];
     
     return cell;
 }

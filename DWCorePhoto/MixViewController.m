@@ -136,7 +136,11 @@
     imageview = imgview;
     NSMutableArray *addimg = [NSMutableArray new];
     for (int i = 0; i < [data_i count]; i++) {
-        [addimg addObject:[[data_i objectAtIndex:i] objectAtIndex:0]];
+        ImageModel *model = [ImageModel new];
+        model.imageurl = [[data_i objectAtIndex:i] objectAtIndex:0];
+        model.width = [[[data_i objectAtIndex:i] objectAtIndex:1] floatValue];
+        model.height = [[[data_i objectAtIndex:i] objectAtIndex:2] floatValue];
+        [addimg addObject:model];
     }
     dataimg = (NSArray *)addimg;
     frame_first = CGRectMake(cell.frame.origin.x+ cell.addView.frame.origin.x+imageview.frame.origin.x, cell.frame.origin.y+cell.addView.frame.origin.y+imageview.frame.origin.y-self.tableView.contentOffset.y, imageview.frame.size.width, imageview.frame.size.height);
@@ -165,7 +169,11 @@
         img.index = index;
         //动画类型，目前只有2种.0和1
         img.pop_type = 0;
-        [img showImageView:frame_first image:imageview.image];
+        
+        
+        ImageModel *model = [dataimg objectAtIndex:index];
+        
+        [img showImageView:frame_first image:imageview.image w:model.width h:model.height];
     }
 }
 

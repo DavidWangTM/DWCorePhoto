@@ -12,7 +12,7 @@
 #import "ShowImageController.h"
 
 @interface TableViewController ()<TableCellDelegate>{
-    NSArray *data;
+    NSMutableArray *data;
     NSInteger index;
     UIImageView *imageview;
     CGRect frame_first;
@@ -30,12 +30,36 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
+    data = [NSMutableArray new];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-    
-    data = @[@"http://img4q.duitang.com/uploads/item/201408/11/20140811141753_iNtAF.jpeg",@"http://imgsrc.baidu.com/forum/pic/item/8b82b9014a90f603fa18d50f3912b31bb151edca.jpg",@"http://imgsrc.baidu.com/forum/pic/item/8e230cf3d7ca7bcb3acde5a2be096b63f724a8b2.jpg",@"http://att.bbs.duowan.com/forum/201210/20/210446opy9p5pghu015p9u.jpg",@"http://img5.duitang.com/uploads/item/201404/11/20140411214939_XswXa.jpeg",@"http://img4q.duitang.com/uploads/item/201408/11/20140811141753_iNtAF.jpeg",@"http://imgsrc.baidu.com/forum/pic/item/8b82b9014a90f603fa18d50f3912b31bb151edca.jpg",@"http://imgsrc.baidu.com/forum/pic/item/8e230cf3d7ca7bcb3acde5a2be096b63f724a8b2.jpg",@"http://att.bbs.duowan.com/forum/201210/20/210446opy9p5pghu015p9u.jpg",@"http://img5.duitang.com/uploads/item/201404/11/20140411214939_XswXa.jpeg",@"http://img4q.duitang.com/uploads/item/201408/11/20140811141753_iNtAF.jpeg",@"http://imgsrc.baidu.com/forum/pic/item/8b82b9014a90f603fa18d50f3912b31bb151edca.jpg",@"http://imgsrc.baidu.com/forum/pic/item/8e230cf3d7ca7bcb3acde5a2be096b63f724a8b2.jpg",@"http://att.bbs.duowan.com/forum/201210/20/210446opy9p5pghu015p9u.jpg",@"http://img5.duitang.com/uploads/item/201404/11/20140411214939_XswXa.jpeg"];
-    
+    for (int i = 0 ; i < 5; i++) {
+        ImageModel *model = [ImageModel new];
+        model.imageurl = @"http://img4q.duitang.com/uploads/item/201408/11/20140811141753_iNtAF.jpeg";
+        model.width = 1280;
+        model.height = 720;
+        [data addObject:model];
+        ImageModel *model1 = [ImageModel new];
+        model1.imageurl = @"http://imgsrc.baidu.com/forum/pic/item/8b82b9014a90f603fa18d50f3912b31bb151edca.jpg";
+        model1.width = 1280;
+        model1.height = 720;
+        [data addObject:model1];
+        ImageModel *model2 = [ImageModel new];
+        model2.imageurl = @"http://imgsrc.baidu.com/forum/pic/item/8e230cf3d7ca7bcb3acde5a2be096b63f724a8b2.jpg";
+        model2.width = 1280;
+        model2.height = 720;
+        [data addObject:model2];
+        ImageModel *model3 = [ImageModel new];
+        model3.imageurl = @"http://att.bbs.duowan.com/forum/201210/20/210446opy9p5pghu015p9u.jpg";
+        model3.width = 1280;
+        model3.height = 720;
+        [data addObject:model3];
+        ImageModel *model4 = [ImageModel new];
+        model4.imageurl = @"http://img5.duitang.com/uploads/item/201404/11/20140411214939_XswXa.jpeg";
+        model4.width = 1280;
+        model4.height = 720;
+        [data addObject:model4];
+    }
 }
 
 -(void)backconclick{
@@ -59,10 +83,10 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *identifier = @"TableCell";
     TableCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
-    NSString *url = data[indexPath.row];
+    ImageModel *model = [data objectAtIndex:indexPath.row];
     cell.delegate = self;
     cell.indexPath = indexPath;
-    [cell.showImage sd_setImageWithURL:[NSURL URLWithString:url]];
+    [cell.showImage sd_setImageWithURL:[NSURL URLWithString:model.imageurl]];
     return cell;
 }
 
@@ -95,7 +119,8 @@
         img.type = 1;
         //动画类型，目前只有2种.0和1
         img.pop_type = 0;
-        [img showImageView:frame_first image:imageview.image];
+        ImageModel *model = [data objectAtIndex:index];
+        [img showImageView:frame_first image:imageview.image w:model.width h:model.height];
     }
 }
 

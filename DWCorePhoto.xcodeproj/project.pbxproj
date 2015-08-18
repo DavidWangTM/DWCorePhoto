@@ -27,6 +27,7 @@
 		04DD72911B534AD60092342C /* MixCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DD72901B534AD60092342C /* MixCell.m */; };
 		04DD72991B534C5C0092342C /* MixModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DD72981B534C5C0092342C /* MixModel.m */; };
 		1B77E3CC85BAA7DECC1F6F8F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F1D02AB73D02A2E7C6F99AE /* libPods.a */; };
+		2105E29F1B831750009B934D /* ImageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2105E29E1B831750009B934D /* ImageModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +78,8 @@
 		04DD72901B534AD60092342C /* MixCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MixCell.m; sourceTree = "<group>"; };
 		04DD72971B534C5C0092342C /* MixModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MixModel.h; sourceTree = "<group>"; };
 		04DD72981B534C5C0092342C /* MixModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MixModel.m; sourceTree = "<group>"; };
+		2105E29D1B831750009B934D /* ImageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageModel.h; sourceTree = "<group>"; };
+		2105E29E1B831750009B934D /* ImageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageModel.m; sourceTree = "<group>"; };
 		274317D20E73FADCD10E2ECB /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		6F1D02AB73D02A2E7C6F99AE /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFDA3BE281BCADD2B314A260 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -196,6 +199,8 @@
 			children = (
 				04DD72971B534C5C0092342C /* MixModel.h */,
 				04DD72981B534C5C0092342C /* MixModel.m */,
+				2105E29D1B831750009B934D /* ImageModel.h */,
+				2105E29E1B831750009B934D /* ImageModel.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -363,6 +368,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2105E29F1B831750009B934D /* ImageModel.m in Sources */,
 				04968AD91B4CD1EE0005C3B0 /* ShowImageController.m in Sources */,
 				04968AA41B4CBA4B0005C3B0 /* ViewController.m in Sources */,
 				04968AD01B4CC7CB0005C3B0 /* CollectionViewController.m in Sources */,

@@ -39,7 +39,7 @@
     for (int i = 0 ; i < [_data count]; i++) {
         showimage = [[[NSBundle mainBundle] loadNibNamed:@"ShowImageView" owner:self options:nil] firstObject];
         showimage.frame = CGRectMake(_scrollView.frame.size.width*i ,_scrollView.frame.origin.y, _scrollView.frame.size.width - SCROLLMAR,_scrollView.frame.size.height);
-        showimage.url = [_data objectAtIndex:i];
+        showimage.model = [_data objectAtIndex:i];
         showimage.delegate = self;
         [_scrollView addSubview:showimage];
     }
@@ -47,60 +47,66 @@
     [_scrollView setHidden:YES];
 }
 
--(void)showImageView:(CGRect) initframe image:(UIImage *) image{
+-(void)showImageView:(CGRect) initframe image:(UIImage *) image w:(CGFloat )w h :(CGFloat) h{
+    if (w == 0) {
+        w = 1000;
+    }
+    if (h == 0) {
+        h = 1000;
+    }
     CGRect frame = [UIScreen mainScreen].bounds;
     zframe = initframe;
     imageview = [[UIImageView alloc] initWithFrame:initframe];
     imageview.image = image;
     imageview.clipsToBounds = YES;
+    imageview.backgroundColor = [UIColor lightGrayColor];
     imageview.contentMode = UIViewContentModeScaleAspectFill;
     [self.view addSubview:imageview];
-    if (image != nil) {
-        CGFloat iwidth = image.size.width;
-        CGFloat iheight = image.size.height;
-        if (iwidth > iheight) {
-            CGFloat h = initframe.size.height;
-            CGFloat w = iwidth / iheight * h;
-            smallSize = CGSizeMake(w, h);
-        }else{
-            CGFloat w = initframe.size.width;
-            CGFloat h = iheight / iwidth * w;
-            smallSize = CGSizeMake(w, h);
-        }
-        if ((frame.size.height / frame.size.width) < (iheight / iwidth)) {
-            CGFloat h = frame.size.height;
-            CGFloat w = iwidth / iheight * h;
-            bigSize = CGSizeMake(w, h);
-        }else{
-            CGFloat w = frame.size.width;
-            CGFloat h = iheight / iwidth * w;
-            bigSize = CGSizeMake(w, h);
-        }
+    CGFloat iwidth = w;
+    CGFloat iheight = h;
+    if (iwidth > iheight) {
+        CGFloat h = initframe.size.height;
+        CGFloat w = iwidth / iheight * h;
+        smallSize = CGSizeMake(w, h);
     }else{
-        [imageview sd_setImageWithURL:[NSURL URLWithString:[_data objectAtIndex:_index]] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-            CGFloat iwidth = image.size.width;
-            CGFloat iheight = image.size.height;
-            if (iwidth > iheight) {
-                CGFloat h = initframe.size.height;
-                CGFloat w = iwidth / iheight * h;
-                smallSize = CGSizeMake(w, h);
-            }else{
-                CGFloat w = initframe.size.width;
-                CGFloat h = iheight / iwidth * w;
-                smallSize = CGSizeMake(w, h);
-            }
-            if ((frame.size.height / frame.size.width) < (iheight / iwidth)) {
-                CGFloat h = frame.size.height;
-                CGFloat w = iwidth / iheight * h;
-                bigSize = CGSizeMake(w, h);
-            }else{
-                CGFloat w = frame.size.width;
-                CGFloat h = iheight / iwidth * w;
-                bigSize = CGSizeMake(w, h);
-            }
-
-        }];
+        CGFloat w = initframe.size.width;
+        CGFloat h = iheight / iwidth * w;
+        smallSize = CGSizeMake(w, h);
     }
+    if ((frame.size.height / frame.size.width) < (iheight / iwidth)) {
+        CGFloat h = frame.size.height;
+        CGFloat w = iwidth / iheight * h;
+        bigSize = CGSizeMake(w, h);
+    }else{
+        CGFloat w = frame.size.width;
+        CGFloat h = iheight / iwidth * w;
+        bigSize = CGSizeMake(w, h);
+    }
+}
+
+-(void)defaultImage:(CGRect) initframe frame:(CGRect )frame{
+    UIImage *mrimg = [UIImage imageNamed:@"default"];
+    CGFloat iwidth = mrimg.size.width;
+    CGFloat iheight = mrimg.size.height;
+    if (iwidth > iheight) {
+        CGFloat h = initframe.size.height;
+        CGFloat w = iwidth / iheight * h;
+        smallSize = CGSizeMake(w, h);
+    }else{
+        CGFloat w = initframe.size.width;
+        CGFloat h = iheight / iwidth * w;
+        smallSize = CGSizeMake(w, h);
+    }
+    if ((frame.size.height / frame.size.width) < (iheight / iwidth)) {
+        CGFloat h = frame.size.height;
+        CGFloat w = iwidth / iheight * h;
+        bigSize = CGSizeMake(w, h);
+    }else{
+        CGFloat w = frame.size.width;
+        CGFloat h = iheight / iwidth * w;
+        bigSize = CGSizeMake(w, h);
+    }
+    mrimg = nil;
 }
 
 -(void)goBig{
@@ -191,7 +197,9 @@
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
     
     NSUInteger page = [self pageCalWithScrollView:scrollView];
-    [imageview sd_setImageWithURL:[NSURL URLWithString:[_data objectAtIndex:page]]];
+    
+    ImageModel *model = [_data objectAtIndex:page];
+    [imageview sd_setImageWithURL:[NSURL URLWithString:model.imageurl]];
     if (_type == 1) {
         NSInteger cha = page - _index;
         CGFloat y = zframe.origin.y + (cha * (zframe.size.height + TABLEVIEWMAR));
