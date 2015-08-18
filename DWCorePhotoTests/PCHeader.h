@@ -9,6 +9,9 @@
 #import <pop/POP.h>
 #import "UIImageView+WebCache.h"
 #import "ImageModel.h"
+#import "SwipeView.h"
+#import "ShowImageView.h"
+#import "NewShowImageView.h"
 
 #define BOUNDS [[UIScreen mainScreen] bounds].size
 

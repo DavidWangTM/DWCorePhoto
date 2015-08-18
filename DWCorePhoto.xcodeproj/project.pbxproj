@@ -28,6 +28,9 @@
 		04DD72991B534C5C0092342C /* MixModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DD72981B534C5C0092342C /* MixModel.m */; };
 		1B77E3CC85BAA7DECC1F6F8F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F1D02AB73D02A2E7C6F99AE /* libPods.a */; };
 		2105E29F1B831750009B934D /* ImageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2105E29E1B831750009B934D /* ImageModel.m */; };
+		2105E2A21B8322E7009B934D /* NewShowImageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2105E2A11B8322E7009B934D /* NewShowImageController.m */; };
+		2105E2A51B832A6F009B934D /* NewShowImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2105E2A41B832A6F009B934D /* NewShowImageView.m */; };
+		2105E2A71B832A7B009B934D /* NewShowImageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2105E2A61B832A7B009B934D /* NewShowImageView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,7 +57,7 @@
 		04968AB11B4CBA4B0005C3B0 /* DWCorePhotoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DWCorePhotoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		04968AB61B4CBA4B0005C3B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04968AB71B4CBA4B0005C3B0 /* DWCorePhotoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DWCorePhotoTests.m; sourceTree = "<group>"; };
-		04968AC11B4CBBD80005C3B0 /* PCHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PCHeader.h; sourceTree = "<group>"; };
+		04968AC11B4CBBD80005C3B0 /* PCHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PCHeader.h; path = DWCorePhotoTests/PCHeader.h; sourceTree = SOURCE_ROOT; };
 		04968AC31B4CBD3B0005C3B0 /* MainCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainCell.h; sourceTree = "<group>"; };
 		04968AC41B4CBD3B0005C3B0 /* MainCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainCell.m; sourceTree = "<group>"; };
 		04968AC71B4CBDF20005C3B0 /* SingleShowImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingleShowImage.h; sourceTree = "<group>"; };
@@ -80,6 +83,11 @@
 		04DD72981B534C5C0092342C /* MixModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MixModel.m; sourceTree = "<group>"; };
 		2105E29D1B831750009B934D /* ImageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageModel.h; sourceTree = "<group>"; };
 		2105E29E1B831750009B934D /* ImageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageModel.m; sourceTree = "<group>"; };
+		2105E2A01B8322E7009B934D /* NewShowImageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewShowImageController.h; sourceTree = "<group>"; };
+		2105E2A11B8322E7009B934D /* NewShowImageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewShowImageController.m; sourceTree = "<group>"; };
+		2105E2A31B832A6F009B934D /* NewShowImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewShowImageView.h; sourceTree = "<group>"; };
+		2105E2A41B832A6F009B934D /* NewShowImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewShowImageView.m; sourceTree = "<group>"; };
+		2105E2A61B832A7B009B934D /* NewShowImageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewShowImageView.xib; sourceTree = "<group>"; };
 		274317D20E73FADCD10E2ECB /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		6F1D02AB73D02A2E7C6F99AE /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFDA3BE281BCADD2B314A260 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -142,6 +150,8 @@
 				04968ACF1B4CC7CB0005C3B0 /* CollectionViewController.m */,
 				04968AD71B4CD1EE0005C3B0 /* ShowImageController.h */,
 				04968AD81B4CD1EE0005C3B0 /* ShowImageController.m */,
+				2105E2A01B8322E7009B934D /* NewShowImageController.h */,
+				2105E2A11B8322E7009B934D /* NewShowImageController.m */,
 				04DD72891B5348B80092342C /* MixViewController.h */,
 				04DD728A1B5348B80092342C /* MixViewController.m */,
 				04968AA51B4CBA4B0005C3B0 /* Main.storyboard */,
@@ -157,6 +167,7 @@
 			children = (
 				04968A9C1B4CBA4B0005C3B0 /* Info.plist */,
 				04968A9D1B4CBA4B0005C3B0 /* main.m */,
+				04968AC11B4CBBD80005C3B0 /* PCHeader.h */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -174,7 +185,6 @@
 			isa = PBXGroup;
 			children = (
 				04968AB61B4CBA4B0005C3B0 /* Info.plist */,
-				04968AC11B4CBBD80005C3B0 /* PCHeader.h */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -211,6 +221,9 @@
 				04968ADA1B4CD2410005C3B0 /* ShowImageView.h */,
 				04968ADB1B4CD2410005C3B0 /* ShowImageView.m */,
 				04968ADD1B4CD24E0005C3B0 /* ShowImageView.xib */,
+				2105E2A31B832A6F009B934D /* NewShowImageView.h */,
+				2105E2A41B832A6F009B934D /* NewShowImageView.m */,
+				2105E2A61B832A7B009B934D /* NewShowImageView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -316,6 +329,7 @@
 			files = (
 				04968AA71B4CBA4B0005C3B0 /* Main.storyboard in Resources */,
 				04968ADE1B4CD24E0005C3B0 /* ShowImageView.xib in Resources */,
+				2105E2A71B832A7B009B934D /* NewShowImageView.xib in Resources */,
 				04968AAC1B4CBA4B0005C3B0 /* LaunchScreen.xib in Resources */,
 				04968AA91B4CBA4B0005C3B0 /* Images.xcassets in Resources */,
 			);
@@ -373,6 +387,8 @@
 				04968AA41B4CBA4B0005C3B0 /* ViewController.m in Sources */,
 				04968AD01B4CC7CB0005C3B0 /* CollectionViewController.m in Sources */,
 				04968ACD1B4CC7B60005C3B0 /* TableViewController.m in Sources */,
+				2105E2A21B8322E7009B934D /* NewShowImageController.m in Sources */,
+				2105E2A51B832A6F009B934D /* NewShowImageView.m in Sources */,
 				04968AD61B4CC8300005C3B0 /* CollectionCell.m in Sources */,
 				04968AC91B4CBDF20005C3B0 /* SingleShowImage.m in Sources */,
 				04968AA11B4CBA4B0005C3B0 /* AppDelegate.m in Sources */,

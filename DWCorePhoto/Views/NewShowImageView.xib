@@ -7,25 +7,24 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ShowImageView">
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="NewShowImageView">
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" id="kcq-bx-P17">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" id="J9w-ay-Psq">
+                    <rect key="frame" x="0.0" y="0.0" width="300" height="568"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <connections>
-                        <outlet property="delegate" destination="iN0-l3-epB" id="rBN-Z3-2lR"/>
+                        <outlet property="delegate" destination="iN0-l3-epB" id="Sp6-O9-c3T"/>
                     </connections>
                 </scrollView>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
-                <outlet property="scrollview" destination="kcq-bx-P17" id="3de-lh-RAh"/>
+                <outlet property="scrollview" destination="J9w-ay-Psq" id="VCa-lQ-i5T"/>
             </connections>
-            <point key="canvasLocation" x="317" y="194"/>
+            <point key="canvasLocation" x="309" y="324"/>
         </view>
     </objects>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

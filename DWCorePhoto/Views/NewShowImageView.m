@@ -1,19 +1,17 @@
 //
-//  ShowImageView.m
+//  NewShowImageView.m
 //  DWCorePhoto
 //
-//  Created by mac on 15/7/8.
+//  Created by DavidWang on 15/8/18.
 //  Copyright (c) 2015年 DavidWang. All rights reserved.
 //
 
-#import "ShowImageView.h"
+#import "NewShowImageView.h"
 
-@implementation ShowImageView{
+@implementation NewShowImageView{
     CGFloat currentScale;
 }
 
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect {
     // Drawing code
     if (_model.width == 0) {
@@ -51,6 +49,10 @@
     [tapImgView requireGestureRecognizerToFail:tapImgViewTwice];
 }
 
+-(void)changeView{
+    
+}
+
 
 - (void)scrollViewDidEndZooming:(UIScrollView *)scrollView withView:(UIView *)view atScale:(CGFloat)scale{
     currentScale = scale;
@@ -67,7 +69,7 @@
         currentScale = 0.0;
         [self.scrollview setZoomScale:0.0 animated:YES];
     }else{
-        [_delegate BackOnclick];
+        [_delegate NewBackOnclick];
     }
 }
 
@@ -95,8 +97,7 @@
     CGFloat offsetY = (scrollView1.bounds.size.height > scrollView1.contentSize.height)?(scrollView1.bounds.size.height - scrollView1.contentSize.height)/2 : 0.0;
     
     _imageView.center = CGPointMake(scrollView1.contentSize.width/2 + offsetX,scrollView1.contentSize.height/2 + offsetY);
-
+    
 }
-
 
 @end

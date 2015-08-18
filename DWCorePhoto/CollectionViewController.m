@@ -11,6 +11,7 @@
 #import "PCHeader.h"
 #import "ShowImageController.h"
 
+#import "NewShowImageController.h"
 @interface CollectionViewController ()<CollectionCellDelegate>{
     NSMutableArray *data;
     NSInteger index;
@@ -80,6 +81,15 @@ static NSString * const reuseIdentifier = @"Cell";
         img.pop_type = 0;
         ImageModel *model = [data objectAtIndex:index];
         [img showImageView:frame_first image:imageview.image w:model.width h:model.height];
+    }else if ([segue.identifier compare:@"showimage1"] == NSOrderedSame){
+        NewShowImageController *img = (NewShowImageController*)segue.destinationViewController;
+        img.data = data;
+        img.index = index;
+        img.type = 2;
+        //动画类型，目前只有2种.0和1
+        img.pop_type = 0;
+        ImageModel *model = [data objectAtIndex:index];
+        [img showImageView:frame_first image:imageview.image w:model.width h:model.height];
     }
 }
 
@@ -91,7 +101,7 @@ static NSString * const reuseIdentifier = @"Cell";
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
-    CGFloat width = (BOUNDS.width - 10*2)/3;
+    CGFloat width = (BOUNDS.width - 10*4)/3;
     return CGSizeMake(width, width);
 }
 
@@ -111,7 +121,7 @@ static NSString * const reuseIdentifier = @"Cell";
     imageview = cell.showImage;
     
     frame_first = CGRectMake(cell.frame.origin.x+imageview.frame.origin.x, cell.frame.origin.y+imageview.frame.origin.y-self.collectionView.contentOffset.y, imageview.frame.size.width, imageview.frame.size.height);
-    [self performSegueWithIdentifier:@"showimage" sender:nil];
+    [self performSegueWithIdentifier:@"showimage1" sender:nil];
 }
 
 

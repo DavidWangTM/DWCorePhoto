@@ -1,26 +1,27 @@
 //
-//  ShowImageView.h
+//  NewShowImageView.h
 //  DWCorePhoto
 //
-//  Created by mac on 15/7/8.
+//  Created by DavidWang on 15/8/18.
 //  Copyright (c) 2015年 DavidWang. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 #import "PCHeader.h"
 
-@protocol ShowImageDelegate <NSObject>
+@protocol NewShowImageDelegate <NSObject>
 
--(void)BackOnclick;
+-(void)NewBackOnclick;
 
 @end
 
-@interface ShowImageView : UIView<UIScrollViewDelegate>
+@interface NewShowImageView : UIView
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollview;
 @property (strong, nonatomic) ImageModel *model;
 @property (strong ,nonatomic) UIImageView *imageView;
-@property (weak, nonatomic) id<ShowImageDelegate> delegate;
+@property (weak, nonatomic) id<NewShowImageDelegate> delegate;
 
+-(void)changeView;
 
 @end

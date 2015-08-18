@@ -68,7 +68,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="BNW-Iy-xcq">
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="8" minimumInteritemSpacing="8" id="BNW-Iy-xcq">
                             <size key="itemSize" width="50" height="50"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -103,11 +103,40 @@
                     <navigationItem key="navigationItem" title="CollectionShow" id="gvp-Vs-vMq"/>
                     <connections>
                         <segue destination="qz5-Pe-eAX" kind="modal" identifier="showimage" modalTransitionStyle="crossDissolve" animates="NO" id="qsX-yZ-3pD"/>
+                        <segue destination="FFa-gf-6sD" kind="modal" identifier="showimage1" animates="NO" id="etA-bR-ohr"/>
                     </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zAc-7j-FYc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="572" y="-360"/>
+            <point key="canvasLocation" x="550" y="-350"/>
+        </scene>
+        <!--New Show Image Controller-->
+        <scene sceneID="Xw2-la-jjk">
+            <objects>
+                <viewController id="FFa-gf-6sD" customClass="NewShowImageController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ybs-ND-xBz">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view hidden="YES" contentMode="scaleToFill" id="B37-PG-zow" customClass="SwipeView">
+                                <rect key="frame" x="0.0" y="0.0" width="340" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="FFa-gf-6sD" id="RLT-d1-vrr"/>
+                                    <outlet property="delegate" destination="FFa-gf-6sD" id="l8u-T6-nwg"/>
+                                </connections>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="swipeView" destination="B37-PG-zow" id="ttT-Qu-6oV"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Lam-Wp-cHN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="977" y="-360"/>
         </scene>
         <!--SingleShow-->
         <scene sceneID="BxE-GJ-tyz">
@@ -212,7 +241,7 @@
                                         </view>
                                         <view contentMode="scaleToFill" id="tyD-Qa-t0Z">
                                             <rect key="frame" x="252" y="197" width="62" height="62"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="caS-wH-PXX">
                                                     <rect key="frame" x="1" y="1" width="60" height="60"/>
