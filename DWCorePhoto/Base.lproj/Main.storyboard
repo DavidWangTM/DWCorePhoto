@@ -200,6 +200,7 @@
                     <navigationItem key="navigationItem" title="TableViewShow" id="bkU-DI-UKn"/>
                     <connections>
                         <segue destination="qz5-Pe-eAX" kind="modal" identifier="showimage" modalTransitionStyle="crossDissolve" animates="NO" id="PF7-7K-6Ar"/>
+                        <segue destination="FFa-gf-6sD" kind="modal" identifier="showimage1" animates="NO" id="nfF-Y3-MV9"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l4m-No-16p" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -386,11 +387,12 @@
                         <outlet property="userImage" destination="caS-wH-PXX" id="RxQ-q4-jbh"/>
                         <outlet property="usernameLab" destination="AHt-Yc-hGk" id="YOH-MC-PCX"/>
                         <segue destination="qz5-Pe-eAX" kind="modal" identifier="showimage" animates="NO" id="xmD-U3-jd8"/>
+                        <segue destination="FFa-gf-6sD" kind="modal" identifier="showimage1" animates="NO" id="QXz-bH-MMV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BlP-Gv-L8c" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="550" y="1540"/>
+            <point key="canvasLocation" x="550" y="1538"/>
         </scene>
         <!--Show Image Controller-->
         <scene sceneID="GDV-uY-pUW">
@@ -443,6 +445,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="qsX-yZ-3pD"/>
+        <segue reference="QXz-bH-MMV"/>
+        <segue reference="xmD-U3-jd8"/>
     </inferredMetricsTieBreakers>
 </document>

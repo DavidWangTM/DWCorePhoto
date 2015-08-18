@@ -54,16 +54,18 @@
 - (UIView *)swipeView:(SwipeView *)swipeView viewForItemAtIndex:(NSInteger)index reusingView:(UIView *)view
 {
     NewShowImageView *showimage;
-//    if (view == nil)
-//    {
+    if (view == nil)
+    {
         showimage = [[[NSBundle mainBundle] loadNibNamed:@"NewShowImageView" owner:self options:nil] lastObject];
-//    }else{
-//        showimage = (NewShowImageView *)view;
-//        
-//    }
+        showimage.model = [_data objectAtIndex:index];
+        showimage.delegate = self;
+    }else{
+        showimage = (NewShowImageView *)view;
+        showimage.model = [_data objectAtIndex:index];
+        showimage.delegate = self;
+        [showimage changeView];
+    }
     
-    showimage.model = [_data objectAtIndex:index];
-    showimage.delegate = self;
     
     return showimage;
 }
