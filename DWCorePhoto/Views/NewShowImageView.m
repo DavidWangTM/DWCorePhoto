@@ -14,34 +14,7 @@
 
 - (void)drawRect:(CGRect)rect {
     // Drawing code
-    
     [self addView];
-//    _imageView = [[UIImageView alloc] init];
-//    [_imageView setBackgroundColor:[UIColor lightGrayColor]];
-//    rect.size.width = _model.width;
-//    rect.size.height = _model.height;
-//    if (_model.width < BOUNDS.width) {
-//        rect.size.width = BOUNDS.width * 2;
-//        CGFloat p = _model.width/_model.height;
-//        rect.size.height = (BOUNDS.width/p)*2;
-//    }
-//    [_imageView setFrame:rect];
-//    [_scrollview setContentSize:[_imageView frame].size];
-//    [_scrollview setMinimumZoomScale:[_scrollview frame].size.width / [_imageView frame].size.width];
-//    [_scrollview setZoomScale:0.0];
-//    [_imageView sd_setImageWithURL:[NSURL URLWithString:_model.imageurl] placeholderImage:[UIImage imageNamed:@"img_pic_jz"]];
-//    [_scrollview addSubview:_imageView];
-//    
-//    UITapGestureRecognizer *tapImgView = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapImgViewHandle)];
-//    tapImgView.numberOfTapsRequired = 1;
-//    tapImgView.numberOfTouchesRequired = 1;
-//    [self addGestureRecognizer:tapImgView];
-//    
-//    UITapGestureRecognizer *tapImgViewTwice = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapImgViewHandleTwice:)];
-//    tapImgViewTwice.numberOfTapsRequired = 2;
-//    tapImgViewTwice.numberOfTouchesRequired = 1;
-//    [self addGestureRecognizer:tapImgViewTwice];
-//    [tapImgView requireGestureRecognizerToFail:tapImgViewTwice];
 }
 
 -(void)addView{

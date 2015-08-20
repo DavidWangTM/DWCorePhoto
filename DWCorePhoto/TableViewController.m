@@ -32,8 +32,6 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     data = [NSMutableArray new];
-    self.tableView.delegate = self;
-    self.tableView.dataSource = self;
     for (int i = 0 ; i < 5; i++) {
         ImageModel *model = [ImageModel new];
         model.imageurl = @"http://img4q.duitang.com/uploads/item/201408/11/20140811141753_iNtAF.jpeg";
