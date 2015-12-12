@@ -59,10 +59,7 @@
         model4.height = 720;
         [data addObject:model4];
     }
-    
-    [_tableView reloadData];
-    NSIndexPath *scrollIndexPath = [NSIndexPath indexPathForRow:(data.count -1)  inSection:0];
-    [_tableView scrollToRowAtIndexPath:scrollIndexPath atScrollPosition:UITableViewScrollPositionBottom animated:NO];
+
 }
 
 -(void)backconclick{
