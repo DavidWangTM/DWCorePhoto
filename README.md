@@ -5,5 +5,7 @@
 4.网格图片点击，放大效果，和缩放效果。<br />
 5.增加列表混合布局<br />
 如果有更多想法，联系我Q:232190315.
+> *此项目IOS地址:(https://github.com/DavidWangTM/DWCorePhoto_Android)
+
 # 效果图
 ![](https://raw.githubusercontent.com/DavidWangTM/DWCorePhoto/master/1.gif)
