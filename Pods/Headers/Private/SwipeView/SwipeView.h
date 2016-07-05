@@ -1,1 +1,0 @@
-../../../SwipeView/SwipeView/SwipeView.h
